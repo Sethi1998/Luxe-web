@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import BgIcon from "@/icons/BgIcon";
 import Image from "next/image";
 import React from "react";

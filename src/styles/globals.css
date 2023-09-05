@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.center .slick-center .sliderwarpper {
+  opacity: 1;
+  -ms-transform: scale(1.08);
+  transform: scale(1.08);
+  background: #5660c0;
+  color: white;
+}
+.center .sliderwarpper {
+  transition: all 0.1s ease;
+}
+.center .sliderwarpper {
+  color: #636262;
+}
+
+  

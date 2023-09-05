@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
 import Container from "../common/Container";
+import { ReactSlider } from "../common/Slider/Slider";
 
 export const FindDrive = () => {
   return (
@@ -14,6 +14,7 @@ export const FindDrive = () => {
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s,
         </p>
+        <ReactSlider />
       </div>
     </Container>
   );

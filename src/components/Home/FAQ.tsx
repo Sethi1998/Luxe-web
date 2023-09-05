@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { DownArrow } from "@/icons/DownArrow";
 import Container from "../common/Container";
 import { RightArrow } from "@/icons/RightArrowIcon";

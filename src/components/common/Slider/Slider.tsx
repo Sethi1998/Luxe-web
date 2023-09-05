@@ -21,7 +21,7 @@ const imgArr = [
   },
   { id: 5, name: "/Car1.png" },
 ];
-function Arrow(props: any) {
+export function Arrow(props: any) {
   let className = props.type === "next" ? "nextArrow" : "prevArrow";
   className += " arrow";
   const char =
@@ -40,47 +40,44 @@ function Arrow(props: any) {
     </span>
   );
 }
+export const settings = {
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  speed: 500,
+  background: "#5660C0",
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        infinite: true,
+      },
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+  ],
+};
 export const ReactSlider = () => {
-  const settings = {
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    speed: 500,
-    background:"#5660C0",
-    responsive: [
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: true,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 900,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
-  };
   return (
     <Container>
-
       <Slider
         {...settings}
         nextArrow={<Arrow type="next" />}
         prevArrow={<Arrow type="prev" />}
       >
         {imgArr.map((item, i) => (
-          <div key={i} className="p-8 h-[300px]">
+          <div key={i} className="p-8">
             <div
-              className="sliderwarpper relative flex items-end rounded-[30px] h-[350px] bg-contain bg-no-repeat text-center"
+              className="sliderwarpper flex items-end rounded-lg bg-contain bg-no-repeat text-center h-[250px]"
               style={{ backgroundImage: `url(${item.name})` }}
-            >
-                {/* <h2 className="left-10 top-0 relative">Cargo</h2> */}
-            </div>
+            ></div>
           </div>
         ))}
       </Slider>

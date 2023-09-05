@@ -5,7 +5,7 @@ import { PrimaryButton } from "../Button/PrimaryButton";
 
 const Header = () => {
   return (
-    <header className="absolute top-0 w-full z-50 ">
+    <header className="absolute top-0 w-full z-50">
       <Container>
         <div className="flex justify-between">
           <div className="flex items-center gap-2">
@@ -15,7 +15,7 @@ const Header = () => {
           <div className="flex gap-6 items-center">
             <PrimaryButton label="Become a host" />
             <div>
-              <Image src="/Vector.png" width={42} height={42} alt="Vector" />
+              <Image src="/Vector.png" width={50} height={50} alt="Vector" />
             </div>
           </div>
         </div>

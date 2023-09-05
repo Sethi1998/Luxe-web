@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Container from "../Container";
 import Image from "next/image";
 
@@ -5,9 +6,9 @@ const Footer = () => {
   return (
     <footer className="relative bottom-0 bg-primary text-white">
       <Container>
-        <div className="flex gap-10">
+        <div className="flex gap-10 flex-col lg:flex-row">
           <div className="flex-[1.5] flex flex-col gap-4">
-            <div className="flex items-center gap-2">
+            <div className="flex justify-center gap-2 items-center lg:justify-start">
               <Image
                 src="/img/LogoWhite.png"
                 alt="logo"
@@ -16,7 +17,7 @@ const Footer = () => {
               />
               <h1 className="text-lg font-bold lg:text-xl">LuxeRide</h1>
             </div>
-            <p className="leading-[40px]">
+            <p className="leading-[40px] text-center lg:text-left">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s,
@@ -37,7 +38,7 @@ const Footer = () => {
               <span>Out taxi's</span>
             </div>
             <div className="flex flex-col gap-4">
-              <h2 className="font-bold">About us</h2>
+              <h2 className="font-bold">Info</h2>
               <span>Out taxi's</span>
               <span>Out taxi's</span>
               <span>Out taxi's</span>

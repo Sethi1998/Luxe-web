@@ -1,4 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import Container from "../common/Container";
+import { ReviewSlider } from "../common/Slider/ReviewSlider";
 
 export const CustomerReview = () => {
   return (
@@ -7,7 +9,10 @@ export const CustomerReview = () => {
         What Our Customers <br />
         Have To Say
       </h2>
-      <p className="text-center text-secondary">Here's what our customers say with CareHealth</p>
+      <p className="text-center text-secondary">
+        Here's what our customers say with CareHealth
+      </p>
+      <ReviewSlider />
     </Container>
   );
 };

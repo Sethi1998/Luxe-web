@@ -14,7 +14,6 @@ const Home = () => {
       <div className="flex flex-col gap-8">
         <BannerSection />
         <FindDrive />
-        <ReactSlider />
         <PerfectCar />
         <CustomerReview />
         <FAQ />
