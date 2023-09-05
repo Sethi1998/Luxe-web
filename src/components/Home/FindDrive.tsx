@@ -1,0 +1,20 @@
+/* eslint-disable react/no-unescaped-entities */
+import React from "react";
+import Container from "../common/Container";
+
+export const FindDrive = () => {
+  return (
+    <Container>
+      <div className="flex flex-col gap-4">
+        <h1 className="text-2xl capitalize font-semibold lg:text-5xl">
+          Find your drive
+        </h1>
+        <p className="text-secondary lg:w-[70%] lg:text-base">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s,
+        </p>
+      </div>
+    </Container>
+  );
+};

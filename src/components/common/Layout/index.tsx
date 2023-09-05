@@ -9,7 +9,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="min-h-[calc(100vh-40px)]">
+      <div className="mt-[120px] min-h-[calc(100vh-40px)]">
       {children}
       </div>
       <Footer />
