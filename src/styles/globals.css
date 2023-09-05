@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.slick-slider{
+  height: 250px;
+}
 .center .slick-center .sliderwarpper {
   opacity: 1;
   -ms-transform: scale(1.08);

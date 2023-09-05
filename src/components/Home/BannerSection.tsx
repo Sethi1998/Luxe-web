@@ -26,14 +26,14 @@ export const BannerSection = () => {
                 City, airport, address or hotel
               </span>
             </div>
-            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center text-left px-10 gap-6 text-primary font-semibold lg:w-[362px]">
+            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center text-left px-10 gap-4 text-primary font-semibold lg:w-[362px]">
               <CalendarIcon />
               <span>Start Date</span>
               <span>|</span>
               <TimeIcon />
               <span>Time</span>
             </div>
-            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center text-left px-10 gap-6 text-primary font-semibold lg:w-[362px]">
+            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center text-left px-10 gap-4 text-primary font-semibold lg:w-[362px]">
               <CalendarIcon />
               <span>End Date</span>
               <span>|</span>

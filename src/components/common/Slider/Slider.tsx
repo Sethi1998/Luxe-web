@@ -66,21 +66,19 @@ export const settings = {
 };
 export const ReactSlider = () => {
   return (
-    <Container>
-      <Slider
-        {...settings}
-        nextArrow={<Arrow type="next" />}
-        prevArrow={<Arrow type="prev" />}
-      >
-        {imgArr.map((item, i) => (
-          <div key={i} className="p-8">
-            <div
-              className="sliderwarpper flex items-end rounded-lg bg-contain bg-no-repeat text-center h-[250px]"
-              style={{ backgroundImage: `url(${item.name})` }}
-            ></div>
-          </div>
-        ))}
-      </Slider>
-    </Container>
+    <Slider
+      {...settings}
+      nextArrow={<Arrow type="next" />}
+      prevArrow={<Arrow type="prev" />}
+    >
+      {imgArr.map((item, i) => (
+        <div key={i} className="p-8">
+          <div
+            className="sliderwarpper flex items-end rounded-lg bg-contain bg-no-repeat text-center h-[250px]"
+            style={{ backgroundImage: `url(${item.name})` }}
+          ></div>
+        </div>
+      ))}
+    </Slider>
   );
 };

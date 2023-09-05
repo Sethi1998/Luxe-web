@@ -13,7 +13,7 @@ export const PerfectCar = () => {
         alt="Perfect"
         width="561"
         height="661"
-        className="absolute top-[130px] w-[350px] lg:w-[561px]"
+        className="absolute top-[100px] lg:top-[130px] w-[350px] lg:w-[561px]"
       />
       <Container>
         <div className="flex flex-col gap-6 justify-between w-full lg:flex-row">
