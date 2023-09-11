@@ -11,7 +11,7 @@ export const DownArrow = () => {
       cursor="pointer"
 
     >
-      <path d="M15.5 1.5L8.5 8.5L1.5 1.5" stroke="white" stroke-width="2" />
+      <path d="M15.5 1.5L8.5 8.5L1.5 1.5" stroke="white" strokeWidth="2" />
     </svg>
   );
 };

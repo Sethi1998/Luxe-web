@@ -8,7 +8,7 @@ import { TimeIcon } from "@/icons/TimeIcon";
 export const BannerSection = () => {
   return (
     <div
-      className="w-screen flex items-center justify-center h-[670px] bg-no-repeat bg-cover bg-gradient-lightgray-[50%]"
+      className="w-[101%] flex items-center justify-center h-[670px] bg-no-repeat bg-cover bg-gradient-lightgray-[50%] lg:w-full"
       style={{ backgroundImage: "url(/HomeBanner.jpg)" }}
     >
       <Container>
@@ -16,10 +16,10 @@ export const BannerSection = () => {
           <h1 className="text-2xl font-bold text-white uppercase lg:w-[600px] lg:text-4xl">
             Drive in Luxury at your own schedule
           </h1>
-          <h3 className="text-xl text-center text-white lg:text-3xl">
+          <h3 className="text-xl text-center font-semibold text-white lg:text-3xl">
             Instantly rent and unlock nearby cars
           </h3>
-          <div className="flex flex-col bg-white rounded-xl items-center text-left gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-4 lg:px-10">
+          <div className="flex flex-col bg-white rounded-xl items-center text-left gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-4 lg:px-10 text-xs lg:text-g">
             <div className=" w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center text-left px-10 gap-6 lg:w-[362px] ">
               <LocationIcon />
               <span className="text-primary font-semibold">

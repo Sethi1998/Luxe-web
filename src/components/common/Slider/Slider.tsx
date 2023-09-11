@@ -26,11 +26,11 @@ export function Arrow(props: any) {
   className += " arrow";
   const char =
     props.type === "next" ? (
-      <div className="absolute cursor-pointer top-[40%] right-[-20px] w-10 h-10 flex justify-center items-center">
+      <div className="absolute cursor-pointer top-[42%] lg:top-[55%] right-[-20px] w-10 h-10 flex justify-center items-center">
         <RightArrow />
       </div>
     ) : (
-      <div className="absolute cursor-pointer top-[40%] left-[-20px] w-10 h-10  flex justify-center items-center">
+      <div className="absolute cursor-pointer top-[42%] lg:top-[55%] left-[-20px] w-10 h-10  flex justify-center items-center">
         <LeftArrow />
       </div>
     );

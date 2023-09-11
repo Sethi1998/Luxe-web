@@ -6,14 +6,14 @@ export interface ButtonProp {
   type?: ButtonType;
 }
 
-enum ButtonType {
+export enum ButtonType {
   button = "button",
   submit = "submit",
 }
 export const PrimaryButton = ({ label, type, link }: ButtonProp) => {
   return (
-    <Link className="flex w-[146px] h-[48px] rounded-xl bg-primary text-white items-center justify-center text-base " href={link || ""}>
+    <button className="flex p-2 rounded-xl bg-primary text-white items-center justify-center text-base w-full" type={type}>
       {label}
-    </Link>
+    </button>
   );
 };
