@@ -19,21 +19,21 @@ export const BannerSection = () => {
           <h3 className="text-xl text-center font-semibold text-white lg:text-3xl">
             Instantly rent and unlock nearby cars
           </h3>
-          <div className="flex flex-col bg-white rounded-xl items-center text-left gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-4 lg:px-10 text-xs lg:text-g">
-            <div className=" w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center text-left px-10 gap-6 lg:w-[362px] ">
+          <div className="flex flex-col bg-white rounded-xl items-center  gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-4 lg:px-10 text-xs lg:text-sm">
+            <div className=" w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center jsutify-center px-10 gap-6 lg:w-[362px] ">
               <LocationIcon />
               <span className="text-primary font-semibold">
                 City, airport, address or hotel
               </span>
             </div>
-            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center text-left px-10 gap-4 text-primary font-semibold lg:w-[362px]">
+            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center justify-center  px-10 gap-4 text-primary font-semibold lg:w-[362px]">
               <CalendarIcon />
               <span>Start Date</span>
               <span>|</span>
               <TimeIcon />
               <span>Time</span>
             </div>
-            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center text-left px-10 gap-4 text-primary font-semibold lg:w-[362px]">
+            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center justify-center px-10 gap-4 text-primary font-semibold lg:w-[362px]">
               <CalendarIcon />
               <span>End Date</span>
               <span>|</span>
