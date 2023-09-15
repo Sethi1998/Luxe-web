@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import Container from "../common/Container";
 import Image from "next/image";
 import { LocationIcon } from "@/icons/LocationIcon";
 import { CalendarIcon } from "@/icons/CalendarIcon";
 import { TimeIcon } from "@/icons/TimeIcon";
-
+import moment from "moment";
 export const BannerSection = () => {
+  const startDateRef = useRef<any>(null);
+  const startTimeRef = useRef<any>(null);
+  const endDateRef = useRef<any>(null);
+  const endTimeRef = useRef<any>(null);
+
   return (
     <div
       className="w-[101%] flex items-center justify-center h-[670px] bg-no-repeat bg-cover bg-gradient-lightgray-[50%] lg:w-full"
@@ -22,23 +27,84 @@ export const BannerSection = () => {
           <div className="flex flex-col bg-white rounded-xl items-center  gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-4 lg:px-10 text-xs lg:text-sm">
             <div className=" w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center jsutify-center px-10 gap-6 lg:w-[362px] ">
               <LocationIcon />
-              <span className="text-primary font-semibold">
-                City, airport, address or hotel
-              </span>
+              <input
+                className="text-primary font-semibold w-full border-none outline-none"
+                placeholder="City, airport,address or hotel"
+              />
             </div>
             <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center justify-center  px-10 gap-4 text-primary font-semibold lg:w-[362px]">
-              <CalendarIcon />
-              <span>Start Date</span>
+              <span
+                className="cursor-pointer"
+                onClick={() => {
+                  startDateRef?.current?.showPicker();
+                }}
+              >
+                <CalendarIcon />
+              </span>
+              <input
+                className=" text-primary font-semibold w-full border-none outline-none cursor-pointer"
+                ref={startDateRef}
+                placeholder="Start Date"
+                onClick={(e: any) => {
+                  e.target.type = "date";
+                  startDateRef?.current?.showPicker();
+                }}
+              />
               <span>|</span>
-              <TimeIcon />
-              <span>Time</span>
+              <span
+                className="cursor-pointer"
+                onClick={() => {
+                  startTimeRef?.current?.showPicker();
+                }}
+              >
+                <TimeIcon />
+              </span>
+              <input
+                type="time"
+                ref={startTimeRef}
+                className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
+                onClick={(e: any) => {
+                  e.target.type = "time";
+                  startTimeRef?.current?.showPicker();
+                }}
+              />
             </div>
-            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center justify-center px-10 gap-4 text-primary font-semibold lg:w-[362px]">
-              <CalendarIcon />
-              <span>End Date</span>
+            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center justify-center  px-10 gap-4 text-primary font-semibold lg:w-[362px]">
+              <span
+                className="cursor-pointer"
+                onClick={() => {
+                  endDateRef?.current?.showPicker();
+                }}
+              >
+                <CalendarIcon />
+              </span>
+              <input
+                className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
+                ref={endDateRef}
+                placeholder="End Date"
+                onClick={(e: any) => {
+                  e.target.type = "date";
+                  endDateRef?.current?.showPicker();
+                }}
+              />
               <span>|</span>
-              <TimeIcon />
-              <span>Time</span>
+              <span
+                className="cursor-pointer"
+                onClick={() => {
+                  endTimeRef?.current?.showPicker();
+                }}
+              >
+                <TimeIcon />
+              </span>
+              <input
+                type="time"
+                ref={endTimeRef}
+                className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
+                onClick={(e: any) => {
+                  e.target.type = "time";
+                  endTimeRef?.current?.showPicker();
+                }}
+              />
             </div>
           </div>
         </div>

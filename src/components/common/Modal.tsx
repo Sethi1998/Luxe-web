@@ -7,7 +7,7 @@ interface ModalProps {
 export const Modal = ({ children, close }: ModalProps) => {
   return (
     <div className="fixed z-1 left-0 top-0 w-full h-full overflow-auto bg-[rgba(0,0,0,0.4)]">
-      <div className="relative lg:left-[32%] top-[30%] bg-white lg:w-[40%] p-6 rounded-md">
+      <div className="relative lg:left-[32%] top-[25%] bg-white lg:w-[40%] p-6 rounded-md">
         <Image
           src="/close.png"
           alt="close"

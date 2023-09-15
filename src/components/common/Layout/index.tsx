@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     console.log(output, "output");
     if (output.success === false) {
       deleteCookie("token");
-      router.push("/");
+      // router.push("/");
     }
     if (output.success === true) {
       setUserInfo(output.data);
