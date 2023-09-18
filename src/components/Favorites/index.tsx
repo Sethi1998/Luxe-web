@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useContext } from "react";
 import Container from "../common/Container";
 import Layout from "../common/Layout";
