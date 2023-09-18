@@ -28,7 +28,7 @@ export const FavoriteCard = ({
         <span>{rating} (50 trips)</span>
       </div>
       <div className="flex justify-between w-[90%] border-t p-2 items-center font-semibold">
-        <Image src="/img/Lover.png" width={30} height={30} alt="love" />
+        <Image src="/img/lover.png" width={30} height={30} alt="love" />
         <span>{price}/day</span>
       </div>
     </div>
