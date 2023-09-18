@@ -8,12 +8,15 @@ import { Signup } from "@/components/Signup";
 import Link from "next/link";
 import { deleteCookie } from "@/services/cookies";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/router";
+import { twMerge } from "tailwind-merge";
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
   const { loginPopup, setLoginPopup, userInfo, setUserInfo } =
     useContext(CMSModal);
-  console.log(userInfo, "userInfo");
+  const router = useRouter();
+
   return (
     <header className="absolute top-0 w-full z-50">
       <Container>
@@ -52,18 +55,46 @@ const Header = () => {
       {menuActive && (
         <div className="absolute bg-white shadow-2xl top-[130px] p-4 rounded-lg w-[221px] right-[5%] text-secondary flex flex-col gap-4">
           {userInfo ? (
-            <div className="flex flex-col gap-4">
-              <Link href="profile">Profile</Link>
-              <Link href="">Trip</Link>
+            <div className="flex flex-col gap-4 ">
+              <Link
+                href="favorites"
+                className={twMerge(
+                  "flex gap-2 hover:text-primary",
+                  router.pathname === "/favorites" && "text-primary"
+                )}
+              >
+                Favorites
+                <Image
+                  src="/img/love.png"
+                  width={25}
+                  height={20}
+                  alt="favorite"
+                />
+              </Link>
+              <Link
+                href="profile"
+                className={twMerge(
+                  "hover:text-primary",
+                  router.asPath === "/profile" ? "text-primary" : ""
+                )}
+              >
+                Profile
+              </Link>
+              <Link href="" className="hover:text-primary">
+                Trip
+              </Link>
               <span
                 onClick={() => {
-                  toast.success('User Logout Successfully')
+                  toast.success("User Logout Successfully");
                   deleteCookie("token");
                   setUserInfo("");
                   setMenuActive(false);
                 }}
               >
-                <Link href="/"> Logout</Link>
+                <Link href="/" className="hover:text-primary">
+                  {" "}
+                  Logout
+                </Link>
               </span>
             </div>
           ) : (
@@ -90,7 +121,7 @@ const Header = () => {
           )}
         </div>
       )}
-      <Toaster/>
+      <Toaster />
       {loginPopup === "login" && <Login />}
       {loginPopup === "signup" && <Signup />}
     </header>
