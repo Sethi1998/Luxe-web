@@ -39,14 +39,14 @@ const Header = () => {
                 width={40}
                 height={20}
                 alt="Vector"
-                className="w-8 h-8"
+                className="w-6 lg:w-8 lg:h-8"
               />
               <Image
                 src="/Vector.png"
                 width={50}
                 height={50}
                 alt="Vector"
-                className="w-10"
+                className="w-8 lg:w-10"
               />
             </div>
           </div>
