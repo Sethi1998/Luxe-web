@@ -1,10 +1,8 @@
 import React, { useRef } from "react";
 import Container from "../common/Container";
-import Image from "next/image";
-import { LocationIcon } from "@/icons/LocationIcon";
 import { CalendarIcon } from "@/icons/CalendarIcon";
 import { TimeIcon } from "@/icons/TimeIcon";
-import moment from "moment";
+import { CitySearch } from "./CitySearch";
 export const BannerSection = () => {
   const startDateRef = useRef<any>(null);
   const startTimeRef = useRef<any>(null);
@@ -25,13 +23,7 @@ export const BannerSection = () => {
             Instantly rent and unlock nearby cars
           </h3>
           <div className="flex flex-col bg-white rounded-xl items-center  gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-4 lg:px-10 text-xs lg:text-sm">
-            <div className=" w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center jsutify-center px-10 gap-6 lg:w-[362px] ">
-              <LocationIcon />
-              <input
-                className="text-primary font-semibold w-full border-none outline-none"
-                placeholder="City, airport,address or hotel"
-              />
-            </div>
+            <CitySearch />
             <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center justify-center  px-10 gap-4 text-primary font-semibold lg:w-[362px]">
               <span
                 className="cursor-pointer"

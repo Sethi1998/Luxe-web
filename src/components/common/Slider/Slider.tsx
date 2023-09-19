@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Container from "../Container";
 import { RightArrow } from "@/icons/RightArrowIcon";
 import { LeftArrow } from "@/icons/LeftArrowIcon";
+import { useRouter } from "next/router";
 
 const imgArr = [
   {
@@ -65,6 +66,7 @@ export const settings = {
   ],
 };
 export const ReactSlider = () => {
+  const router =useRouter()
   return (
     <Slider
       {...settings}
@@ -76,6 +78,7 @@ export const ReactSlider = () => {
           <div
             className="sliderwarpper flex items-end rounded-lg bg-contain bg-no-repeat text-center h-[250px]"
             style={{ backgroundImage: `url(${item.name})` }}
+            onClick={()=>router.push('/car-rental/mercedes')}
           ></div>
         </div>
       ))}

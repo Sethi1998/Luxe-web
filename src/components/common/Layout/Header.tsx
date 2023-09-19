@@ -10,6 +10,7 @@ import { deleteCookie } from "@/services/cookies";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { twMerge } from "tailwind-merge";
+import { CitySearch } from "@/components/Home/CitySearch";
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
