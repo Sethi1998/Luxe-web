@@ -19,8 +19,8 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <header className="absolute top-0 w-full z-50">
-      <Container>
+    <header className="fixed bg-white shadow-xl top-0 w-full z-50">
+      <div className="max-w-[100vw] px-4 lg:px-[80px] py-[10px]">
         <div className="flex justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.png" alt="logo" width={35} height={35} />
@@ -40,36 +40,37 @@ const Header = () => {
                 width={40}
                 height={20}
                 alt="Vector"
-                className="w-6 lg:w-8 lg:h-8"
+                className="w-5"
               />
               <Image
                 src="/Vector.png"
                 width={50}
                 height={50}
                 alt="Vector"
-                className="w-8 lg:w-10"
+                className="w-8"
               />
             </div>
           </div>
         </div>
-      </Container>
+      </div>
       {menuActive && (
         <div className="absolute bg-white shadow-2xl top-[130px] p-4 rounded-lg w-[221px] right-[5%] text-secondary flex flex-col gap-4">
           {userInfo ? (
-            <div className="flex flex-col gap-4 ">
+            <div className="flex flex-col gap-4 justify-center">
               <Link
                 href="favorites"
                 className={twMerge(
-                  "flex gap-2 hover:text-primary",
+                  "flex gap-2 hover:text-primary items-center",
                   router.pathname === "/favorites" && "text-primary"
                 )}
               >
                 Favorites
                 <Image
                   src="/img/love.png"
-                  width={25}
-                  height={20}
                   alt="favorite"
+                  width={15}
+                  height={15}
+                  className="w-[14px] h-[14px]"
                 />
               </Link>
               <Link

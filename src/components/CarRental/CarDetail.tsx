@@ -4,7 +4,7 @@ import { PrimaryButton } from "../common/Button/PrimaryButton";
 import Container from "../common/Container";
 export const CarDetail = () => {
   return (
-    <Container>
+
       <div className="flex flex-col lg:flex-row">
         <div className="flex flex-[1] justify-center">
           <div className="p-2">
@@ -109,6 +109,6 @@ export const CarDetail = () => {
           </div>
         </div>
       </div>
-    </Container>
+
   );
 };

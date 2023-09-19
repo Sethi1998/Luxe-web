@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useContext } from "react";
 import Layout from "../common/Layout";
 import Container from "../common/Container";
@@ -18,9 +19,13 @@ export const Profile = () => {
             >
               <span className="relative top-[30%] left-10 ">
                 <img
-                  src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${userInfo?.profileImg}`}
+                  src={
+                    userInfo?.profileImg
+                      ? `${process.env.NEXT_PUBLIC_API_IMG_URL}/${userInfo?.profileImg}`
+                      : "/Vector.png"
+                  }
                   alt="profile"
-                  className="flex w-[150px] h-[150px] rounded-[100%] border-2 bg-contain "
+                  className="flex w-[150px] h-[150px] rounded-[100%] border-2 bg-contain z-[999]"
                 />
               </span>
             </div>

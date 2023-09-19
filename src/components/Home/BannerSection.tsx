@@ -11,7 +11,7 @@ export const BannerSection = () => {
 
   return (
     <div
-      className="w-[101%] flex items-center justify-center h-[670px] bg-no-repeat bg-cover bg-gradient-lightgray-[50%] lg:w-full"
+      className="w-[101%] flex items-center justify-center h-[500px] bg-no-repeat bg-cover bg-gradient-lightgray-[50%] lg:w-full"
       style={{ backgroundImage: "url(/HomeBanner.jpg)" }}
     >
       <Container>
@@ -22,9 +22,9 @@ export const BannerSection = () => {
           <h3 className="text-xl text-center font-semibold text-white lg:text-3xl">
             Instantly rent and unlock nearby cars
           </h3>
-          <div className="flex flex-col bg-white rounded-xl items-center  gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-4 lg:px-10 text-xs lg:text-sm">
+          <div className="flex flex-col bg-white rounded-xl items-centerl gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-2 lg:px-10 text-xs lg:text-sm">
             <CitySearch />
-            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center justify-center  px-10 gap-4 text-primary font-semibold lg:w-[362px]">
+            <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center justify-center px-4 gap-4 text-primary font-semibold lg:w-[362px]">
               <span
                 className="cursor-pointer"
                 onClick={() => {
@@ -34,7 +34,7 @@ export const BannerSection = () => {
                 <CalendarIcon />
               </span>
               <input
-                className=" text-primary font-semibold w-full border-none outline-none cursor-pointer"
+                className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
                 ref={startDateRef}
                 placeholder="Start Date"
                 onClick={(e: any) => {
@@ -61,7 +61,7 @@ export const BannerSection = () => {
                 }}
               />
             </div>
-            <div className="w-[300px] h-[65px] flex rounded-full border border-[#AAA] items-center justify-center  px-10 gap-4 text-primary font-semibold lg:w-[362px]">
+            <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center justify-center px-4 gap-4 text-primary font-semibold lg:w-[362px]">
               <span
                 className="cursor-pointer"
                 onClick={() => {
