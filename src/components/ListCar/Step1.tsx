@@ -74,7 +74,7 @@ export const Step1 = ({
           label="Plate Number"
           name="plateNumber"
           type="text"
-          error={errors.email?.message}
+          error={errors.location?.message}
           register={register}
         />
       </div>
@@ -83,14 +83,14 @@ export const Step1 = ({
           label="Trim"
           name="trim"
           type="text"
-          error={errors.email?.message}
+          error={errors.location?.message}
           register={register}
         />
         <SecondaryInput
           label="Color"
           name="color"
           type="text"
-          error={errors.email?.message}
+          error={errors.location?.message}
           register={register}
         />
       </div>

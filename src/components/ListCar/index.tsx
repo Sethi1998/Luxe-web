@@ -41,13 +41,28 @@ export const ListCar = () => {
               />
             )}
             {formStep.step2 && (
-              <Step2 setFormStep={setFormStep} formStep={formStep} />
+              <Step2
+                setFormStep={setFormStep}
+                formStep={formStep}
+                formData={formData}
+                setFormData={setFormData}
+              />
             )}
             {formStep.step3 && (
-              <Step3 setFormStep={setFormStep} formStep={formStep} />
+              <Step3
+                setFormStep={setFormStep}
+                formStep={formStep}
+                formData={formData}
+                setFormData={setFormData}
+              />
             )}
             {formStep.step4 && (
-              <Step4 setFormStep={setFormStep} formStep={formStep} />
+              <Step4
+                setFormStep={setFormStep}
+                formStep={formStep}
+                formData={formData}
+                setFormData={setFormData}
+              />
             )}
           </div>
         </div>

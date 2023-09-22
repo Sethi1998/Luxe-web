@@ -12,7 +12,6 @@ export const CarRentalListing = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyDGjR7kqAFRiZ6hVluT9LhshR7_wvqOEug",
   });
-  console.log(isLoaded, "isloa");
 
   const center = useMemo(() => ({ lat: 18.52043, lng: 73.856743 }), []);
 
@@ -21,9 +20,15 @@ export const CarRentalListing = () => {
       <Container>
         <div className="flex flex-col gap-6">
           <div className="flex gap-8 justify-center">
-            <CitySearch />
-            <StartTime />
-            <EndTime />
+            <CitySearch setSearchField={function (value: any): void {
+              throw new Error("Function not implemented.");
+            } } />
+            <StartTime setSearchField={function (value: any): void {
+              throw new Error("Function not implemented.");
+            } } />
+            <EndTime setSearchField={function (value: any): void {
+              throw new Error("Function not implemented.");
+            } } />
           </div>
           <h2 className="text-xl font-bold">44 Cars availaible</h2>
           <div className="flex w-full gap-10 h-full">
