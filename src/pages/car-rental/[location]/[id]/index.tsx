@@ -1,8 +1,8 @@
 import { CarRental } from "@/components/CarRental";
 import React from "react";
 
-const index = () => {
+const CarRentalPage = () => {
   return <CarRental />;
 };
 
-export default index;
+export default CarRentalPage;

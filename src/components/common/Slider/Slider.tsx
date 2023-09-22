@@ -78,7 +78,7 @@ export const ReactSlider = () => {
           <div
             className="sliderwarpper flex items-end rounded-lg bg-contain bg-no-repeat text-center h-[250px]"
             style={{ backgroundImage: `url(${item.name})` }}
-            onClick={()=>router.push('/car-rental/mercedes')}
+            onClick={()=>router.push('/car-rental/uk/mercedes')}
           ></div>
         </div>
       ))}

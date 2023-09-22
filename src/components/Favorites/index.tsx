@@ -17,7 +17,7 @@ export const Favorites = () => {
           <h2 className="text-xl lg:text-3xl font-bold">
             {userInfo?.firstName}'s favorites
           </h2>
-          <Image src="/img/lover.png" width={40} height={30} alt="love" />
+          <Image src="/img/lover.png" width={20} height={20} alt="love" />
         </div>
         <div className="flex flex-col mt-10 lg:grid grid-cols-3 gap-10 items-center">
           <FavoriteCard

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import Container from "../Container";
 import Image from "next/image";
 import { PrimaryButton } from "../Button/PrimaryButton";
 import { CMSModal } from "@/context";
@@ -10,7 +9,8 @@ import { deleteCookie } from "@/services/cookies";
 import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { twMerge } from "tailwind-merge";
-import { CitySearch } from "@/components/Home/CitySearch";
+import { apiHandler } from "@/services/api";
+import { updateUser } from "@/services/api/constants";
 
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -24,13 +24,15 @@ const Header = () => {
         <div className="flex justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.png" alt="logo" width={35} height={35} />
-            <h1 className="text-lg font-bold lg:text-xl">LuxeRide</h1>
+            <h1 className="text-base font-bold lg:text-xl">LuxeRide</h1>
           </Link>
 
-          <div className="flex gap-6 items-center">
-            <span className="hidden lg:flex">
-              <PrimaryButton label="Become a host" />
-            </span>
+          <div className="flex gap-4 lg:gap-6 items-center">
+            {userInfo && (
+              <span className="bg-primary p-[6px] rounded-lg text-white text-xs lg:text-sm">
+                <Link href="/trips/booked">Switch to Host</Link>
+              </span>
+            )}
             <div
               className="flex gap-4 cursor-pointer hover:bg-gray-100 p-2 items-center"
               onClick={() => setMenuActive((prev) => !prev)}

@@ -14,7 +14,6 @@ import { login } from "@/services/api/constants";
 import toast, { Toaster } from "react-hot-toast";
 import { setCookies } from "@/services/cookies";
 import { Loader } from "./common/Loader";
-import { SecondaryButton } from "./common/Button/SecondaryButton";
 interface EmailInterface {
   email: string;
   password: string;

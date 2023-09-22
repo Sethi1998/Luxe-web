@@ -12,7 +12,7 @@ export enum ButtonType {
 }
 export const PrimaryButton = ({ label, type, link }: ButtonProp) => {
   return (
-    <button className="flex p-2 rounded-xl bg-primary text-white items-center justify-center text-base w-full" type={type}>
+    <button className="flex p-3 rounded-xl bg-primary text-white items-center justify-center text-xs w-full lg:text-base" type={type}>
       {label}
     </button>
   );

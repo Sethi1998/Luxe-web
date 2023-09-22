@@ -1,13 +1,16 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import Container from "../common/Container";
-import { CalendarIcon } from "@/icons/CalendarIcon";
-import { TimeIcon } from "@/icons/TimeIcon";
 import { CitySearch } from "./CitySearch";
+import { StartTime } from "./StartTime";
+import { EndTime } from "./EndTime";
+import Image from "next/image";
 export const BannerSection = () => {
-  const startDateRef = useRef<any>(null);
-  const startTimeRef = useRef<any>(null);
-  const endDateRef = useRef<any>(null);
-  const endTimeRef = useRef<any>(null);
+  const [searchField, setSearchField] = useState({
+    address: "",
+    startTime: "",
+    endTime: "",
+  });
+  console.log(searchField, "seaa");
 
   return (
     <div
@@ -22,82 +25,18 @@ export const BannerSection = () => {
           <h3 className="text-xl text-center font-semibold text-white lg:text-3xl">
             Instantly rent and unlock nearby cars
           </h3>
-          <div className="flex flex-col bg-white rounded-xl items-centerl gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-2 lg:px-10 text-xs lg:text-sm">
-            <CitySearch />
-            <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center justify-center px-4 gap-4 text-primary font-semibold lg:w-[362px]">
-              <span
-                className="cursor-pointer"
-                onClick={() => {
-                  startDateRef?.current?.showPicker();
-                }}
-              >
-                <CalendarIcon />
-              </span>
-              <input
-                className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
-                ref={startDateRef}
-                placeholder="Start Date"
-                onClick={(e: any) => {
-                  e.target.type = "date";
-                  startDateRef?.current?.showPicker();
-                }}
-              />
-              <span>|</span>
-              <span
-                className="cursor-pointer"
-                onClick={() => {
-                  startTimeRef?.current?.showPicker();
-                }}
-              >
-                <TimeIcon />
-              </span>
-              <input
-                type="time"
-                ref={startTimeRef}
-                className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
-                onClick={(e: any) => {
-                  e.target.type = "time";
-                  startTimeRef?.current?.showPicker();
-                }}
-              />
-            </div>
-            <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center justify-center px-4 gap-4 text-primary font-semibold lg:w-[362px]">
-              <span
-                className="cursor-pointer"
-                onClick={() => {
-                  endDateRef?.current?.showPicker();
-                }}
-              >
-                <CalendarIcon />
-              </span>
-              <input
-                className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
-                ref={endDateRef}
-                placeholder="End Date"
-                onClick={(e: any) => {
-                  e.target.type = "date";
-                  endDateRef?.current?.showPicker();
-                }}
-              />
-              <span>|</span>
-              <span
-                className="cursor-pointer"
-                onClick={() => {
-                  endTimeRef?.current?.showPicker();
-                }}
-              >
-                <TimeIcon />
-              </span>
-              <input
-                type="time"
-                ref={endTimeRef}
-                className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
-                onClick={(e: any) => {
-                  e.target.type = "time";
-                  endTimeRef?.current?.showPicker();
-                }}
-              />
-            </div>
+          <div className="flex flex-col bg-white rounded-xl items-centerl gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-2 lg:px-10 text-xs lg:text-sm items-center">
+            <CitySearch
+              setSearchField={setSearchField}
+              searchField={searchField}
+            />
+            <StartTime     setSearchField={setSearchField}
+              searchField={searchField}/>
+            <EndTime     setSearchField={setSearchField}
+              searchField={searchField} />
+            <span className="flex bg-primary p-2 rounded-full justify-center cursor-pointer">
+              <Image src="/search.png" width={20} height={20} alt="search" />
+            </span>{" "}
           </div>
         </div>
       </Container>
