@@ -1,8 +1,9 @@
 import { CarRentalListing } from "@/components/RentalListing";
-import React from "react";
+import { useRouter } from "next/router";
 
-const listing = () => {
+const Listing = () => {
+
   return <CarRentalListing />;
 };
 
-export default listing;
+export default Listing;

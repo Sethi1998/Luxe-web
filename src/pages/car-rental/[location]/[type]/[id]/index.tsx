@@ -1,5 +1,4 @@
 import { CarRental } from "@/components/CarRental";
-import React from "react";
 
 const CarRentalPage = () => {
   return <CarRental />;

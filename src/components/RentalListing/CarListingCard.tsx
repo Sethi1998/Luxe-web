@@ -1,10 +1,22 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 export const CarListingCard = () => {
+  const router = useRouter();
+  const type = router.query.type as string;
   return (
-    <div className="flex border rounded-xl gap-4">
-      <Image src="/img/Mercedes3.png" width={300} height={300} alt="listing"  className="rounded-l-xl"/>
+    <div
+      className="flex border rounded-xl gap-4"
+      onClick={() => router.push(`/car-rental/united/${type}/mercedes`)}
+    >
+      <Image
+        src="/img/Mercedes3.png"
+        width={300}
+        height={300}
+        alt="listing"
+        className="rounded-l-xl"
+      />
       <div className="flex flex-col gap-1 p-2 w-full">
         <h2 className="font-bold">Merceds Benz 2022</h2>
         <span>5.0⭐️ (2 trip)</span>
