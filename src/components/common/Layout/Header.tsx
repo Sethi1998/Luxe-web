@@ -27,11 +27,11 @@ const Header = () => {
           </Link>
 
           <div className="flex gap-4 lg:gap-6 items-center">
-            {userInfo && (
+            {/* {userInfo && ( */}
               <span className="bg-primary p-[6px] rounded-lg text-white text-xs lg:text-sm">
                 <Link href="/trips/booked">Switch to Host</Link>
               </span>
-            )}
+            {/* )} */}
             <div
               className="flex gap-4 cursor-pointer hover:bg-gray-100 p-2 items-center"
               onClick={() => setMenuActive((prev) => !prev)}

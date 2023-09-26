@@ -16,6 +16,7 @@ const headerLinks = [
     name: "Trips",
     url: "/trips/booked",
   },
+
   {
     name: "Inbox",
     url: "/inbox/messages",
@@ -67,8 +68,8 @@ export const HostHeader = () => {
             >
               <Link href="/">Switch to Guest</Link>
             </span>
-            <span
-              className="flex gap-4 hover:bg-gray-100"
+            <div
+              className="flex gap-4 cursor-pointer hover:bg-gray-100 p-2 items-center"
               onClick={() => setMenuActive((prev) => !prev)}
             >
               <Image
@@ -85,7 +86,7 @@ export const HostHeader = () => {
                 alt="Vector"
                 className="w-8"
               />
-            </span>
+            </div>
           </div>
           {menuActive && (
         <div className="absolute bg-white shadow-2xl top-[80px] p-4 rounded-lg w-[221px] right-[5%] text-secondary flex flex-col gap-4">
@@ -117,7 +118,7 @@ export const HostHeader = () => {
           </div>
           <div className="flex flex-col gap-4 justify-center border-b p-2">
             <Link
-              href="profile"
+              href="/profile"
               className={twMerge(
                 "hover:text-primary",
                 router.asPath === "/profile" ? "text-primary" : ""

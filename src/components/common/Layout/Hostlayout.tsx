@@ -18,9 +18,9 @@ export const Hostlayout = ({ children }: LayoutProps) => {
   const userInfoData = async () => {
     const response = await apiHandler(`${me}`, "GET");
     const output = response.data;
-    if (output.success === false) {
-      router.push("/");
-    }
+    // if (output.success === false) {
+    //   router.push("/");
+    // }
   };
   return (
     <>
