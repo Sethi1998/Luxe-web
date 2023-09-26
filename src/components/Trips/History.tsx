@@ -5,7 +5,7 @@ import { PrimaryButton } from "../common/Button/PrimaryButton";
 export const History = () => {
   return (
     <div className="flex flex-col gap-6 py-8">
-      <h2 className="text-4xl font-semibold">History</h2>
+      <h2 className="text-2xl lg:text-4xl font-semibold">History</h2>
       <div className="flex gap-4 border-t border-b p-4">
         <Image
           src="/img/Mercedes3.png"
@@ -13,7 +13,7 @@ export const History = () => {
           height={100}
           alt="history"
         />
-        <div className="flex items-center justify-between w-full">
+        <div className="flex flex-col lg:items-center justify-between w-full lg:flex-row">
           <div>
             <h2 className="font-semibold text-gray-600">ABC Trip</h2>
             <h2 className="font-bold">Mercedes Benz C-Class</h2>
@@ -31,7 +31,7 @@ export const History = () => {
           height={100}
           alt="history"
         />
-        <div className="flex items-center justify-between w-full">
+        <div className="flex flex-col lg:items-center justify-between w-full lg:flex-row">
           <div>
             <h2 className="font-semibold text-gray-600">ABC Trip</h2>
             <h2 className="font-bold">Mercedes Benz C-Class</h2>

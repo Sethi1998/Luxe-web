@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -5,7 +6,12 @@ import Container from "../Container";
 import { RightArrow } from "@/icons/RightArrowIcon";
 import { LeftArrow } from "@/icons/LeftArrowIcon";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import { CompaniesProp } from "@/components/Home/FindDrive";
 
+interface SliderProp {
+  arrayData: CompaniesProp[];
+}
 const imgArr = [
   {
     id: 1,
@@ -43,7 +49,7 @@ export function Arrow(props: any) {
 }
 export const settings = {
   infinite: true,
-  slidesToShow: 3,
+  slidesToShow: 4,
   slidesToScroll: 1,
   speed: 500,
   background: "#5660C0",
@@ -65,21 +71,21 @@ export const settings = {
     },
   ],
 };
-export const ReactSlider = () => {
-  const router =useRouter()
+export const ReactSlider = ({ arrayData }: SliderProp) => {
+  const router = useRouter();
   return (
-    <Slider
-      {...settings}
-      nextArrow={<Arrow type="next" />}
-      prevArrow={<Arrow type="prev" />}
-    >
-      {imgArr.map((item, i) => (
-        <div key={i} className="p-8">
-          <div
-            className="sliderwarpper flex items-end rounded-lg bg-contain bg-no-repeat text-center h-[250px]"
-            style={{ backgroundImage: `url(${item.name})` }}
-            onClick={()=>router.push(`/car-rental/uk/ferrari`)}
-          ></div>
+    <Slider {...settings}>
+      {arrayData.map((item) => (
+        <div key={item._id} className="p-8">
+          <div className="sliderwarpper flex flex-col items-center rounded-lg bg-contain bg-no-repeat gap-2 h-[150px]">
+            <img
+              src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.companyImg}`}
+              alt="slider"
+              onClick={() => router.push(`/car-rental/uk/ferrari`)}
+              className="w-[120px] object-cover"
+            />
+            <h2>{item.companyName}</h2>
+          </div>
         </div>
       ))}
     </Slider>

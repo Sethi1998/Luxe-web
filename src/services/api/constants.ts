@@ -5,4 +5,5 @@ export const me='me'
 export const signup = "/signup";
 export const login = "/login";
 export const updateUser = '/updateUser'
+export const getCompanies = '/getCompanies'
 

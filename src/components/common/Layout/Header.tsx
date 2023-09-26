@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import Image from "next/image";
-import { PrimaryButton } from "../Button/PrimaryButton";
 import { CMSModal } from "@/context";
 import { Login } from "@/components/Login";
 import { Signup } from "@/components/Signup";
@@ -56,52 +55,58 @@ const Header = () => {
         </div>
       </div>
       {menuActive && (
-        <div className="absolute bg-white shadow-2xl top-[130px] p-4 rounded-lg w-[221px] right-[5%] text-secondary flex flex-col gap-4">
-          {userInfo ? (
-            <div className="flex flex-col gap-4 justify-center">
-              <Link
-                href="favorites"
-                className={twMerge(
-                  "flex gap-2 hover:text-primary items-center",
-                  router.pathname === "/favorites" && "text-primary"
-                )}
-              >
-                Favorites
-                <Image
-                  src="/img/love.png"
-                  alt="favorite"
-                  width={15}
-                  height={15}
-                  className="w-[14px] h-[14px]"
-                />
+        <div className="absolute bg-white shadow-2xl top-[80px] p-4 rounded-lg w-[221px] right-[5%] text-secondary flex flex-col gap-4">
+          {/* {userInfo ? ( */}
+          <div className="flex flex-col gap-4 justify-center border-b p-2">
+            <Link
+              href="/favorites"
+              className={twMerge(
+                "flex gap-2 hover:text-primary items-center",
+                router.pathname === "/favorites" && "text-primary"
+              )}
+            >
+              Favorites
+              <Image
+                src="/img/love.png"
+                alt="favorite"
+                width={15}
+                height={15}
+                className="w-[14px] h-[14px]"
+              />
+            </Link>
+
+            <Link href="/trips/booked" className="hover:text-primary">
+              Trip
+            </Link>
+            <Link href="/inbox/messages" className="hover:text-primary">
+              Inbox
+            </Link>
+          </div>
+          <div className="flex flex-col gap-4 justify-center border-b p-2">
+            <Link
+              href="profile"
+              className={twMerge(
+                "hover:text-primary",
+                router.asPath === "/profile" ? "text-primary" : ""
+              )}
+            >
+              Profile
+            </Link>
+            <span
+              onClick={() => {
+                toast.success("User Logout Successfully");
+                deleteCookie("token");
+                setUserInfo("");
+                setMenuActive(false);
+              }}
+            >
+              <Link href="/" className="hover:text-primary">
+                {" "}
+                Logout
               </Link>
-              <Link
-                href="profile"
-                className={twMerge(
-                  "hover:text-primary",
-                  router.asPath === "/profile" ? "text-primary" : ""
-                )}
-              >
-                Profile
-              </Link>
-              <Link href="" className="hover:text-primary">
-                Trip
-              </Link>
-              <span
-                onClick={() => {
-                  toast.success("User Logout Successfully");
-                  deleteCookie("token");
-                  setUserInfo("");
-                  setMenuActive(false);
-                }}
-              >
-                <Link href="/" className="hover:text-primary">
-                  {" "}
-                  Logout
-                </Link>
-              </span>
-            </div>
-          ) : (
+            </span>
+          </div>
+          {/* ) : (
             <div className="flex flex-col gap-4">
               <span
                 className="cursor-pointer"
@@ -122,7 +127,7 @@ const Header = () => {
                 Signup
               </span>
             </div>
-          )}
+          )} */}
         </div>
       )}
       <Toaster />

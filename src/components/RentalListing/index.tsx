@@ -3,10 +3,7 @@ import Layout from "../common/Layout";
 import Container from "../common/Container";
 import { CarListingCard } from "./CarListingCard";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-import { CitySearch } from "../Home/CitySearch";
-import { StartTime } from "../Home/StartTime";
-import { EndTime } from "../Home/EndTime";
-
+import { SearchSection } from "../common/SearchSection";
 
 export const CarRentalListing = () => {
   const { isLoaded } = useLoadScript({
@@ -19,17 +16,7 @@ export const CarRentalListing = () => {
     <Layout>
       <Container>
         <div className="flex flex-col gap-6">
-          <div className="flex gap-8 justify-center">
-            <CitySearch setSearchField={function (value: any): void {
-              throw new Error("Function not implemented.");
-            } } />
-            <StartTime setSearchField={function (value: any): void {
-              throw new Error("Function not implemented.");
-            } } />
-            <EndTime setSearchField={function (value: any): void {
-              throw new Error("Function not implemented.");
-            } } />
-          </div>
+          <SearchSection />
           <h2 className="text-xl font-bold">44 Cars availaible</h2>
           <div className="flex w-full gap-10 h-full">
             <div className="flex-[1.5] overflow-y-scroll flex flex-col gap-4">
