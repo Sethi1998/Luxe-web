@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  /* overflow: auto; */
+}
 .slick-slider{
   height: 250px;
 }

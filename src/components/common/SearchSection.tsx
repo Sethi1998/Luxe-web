@@ -44,7 +44,7 @@ export const SearchSection = () => {
 
   return (
     <div className="flex flex-col bg-white rounded-xl items-centerl gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-2 lg:px-10 text-xs lg:text-sm items-center">
-      <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center jsutify-center px-4 gap-6">
+      <div className="w-full lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center jsutify-center px-4 gap-4">
         <LocationIcon />
         <input
           ref={ref}
@@ -52,7 +52,7 @@ export const SearchSection = () => {
           placeholder="City, airport,address or hotel"
         />
       </div>
-      <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center justify-center px-4 gap-4 text-primary font-semibold lg:w-[362px]">
+      <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center justify-center px-4 gap-4 text-primary font-semibold">
         <span
           className="cursor-pointer"
           onClick={() => {

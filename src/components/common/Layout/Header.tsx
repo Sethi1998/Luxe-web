@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header className="fixed bg-white shadow-xl top-0 w-full z-50">
-      <div className="max-w-[100vw] px-4 lg:px-[80px] py-[10px]">
+      <div className="px-4 lg:px-[80px] py-[10px]">
         <div className="flex justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image src="/logo.png" alt="logo" width={35} height={35} />
@@ -28,9 +28,9 @@ const Header = () => {
 
           <div className="flex gap-4 lg:gap-6 items-center">
             {/* {userInfo && ( */}
-              <span className="bg-primary p-[6px] rounded-lg text-white text-xs lg:text-sm">
-                <Link href="/trips/booked">Switch to Host</Link>
-              </span>
+            <span className="bg-primary p-[6px] rounded-lg text-white text-xs lg:text-sm">
+              <Link href="/trips/booked">Switch to Host</Link>
+            </span>
             {/* )} */}
             <div
               className="flex gap-4 cursor-pointer hover:bg-gray-100 p-2 items-center"
@@ -65,32 +65,108 @@ const Header = () => {
                 router.pathname === "/favorites" && "text-primary"
               )}
             >
-              Favorites
               <Image
                 src="/img/love.png"
                 alt="favorite"
                 width={15}
                 height={15}
-                className="w-[14px] h-[14px]"
+                className="w-[16px] h-[16px]"
               />
+              Favorites
             </Link>
 
-            <Link href="/trips/booked" className="hover:text-primary">
+            <Link
+              href="/trips/booked"
+              className="flex gap-2 hover:text-primary items-center"
+            >
+              <Image
+                src="/img/road.png"
+                alt="favorite"
+                width={15}
+                height={15}
+                className="w-[20px] h-[20px]"
+              />
               Trip
             </Link>
-            <Link href="/inbox/messages" className="hover:text-primary">
+            <Link
+              href="/inbox/messages"
+              className="flex gap-2 hover:text-primary items-center"
+            >
+              <Image
+                src="/img/chat-bubble.png"
+                alt="favorite"
+                width={20}
+                height={20}
+                className="w-[20px] h-[20px]"
+              />
               Inbox
             </Link>
           </div>
           <div className="flex flex-col gap-4 justify-center border-b p-2">
             <Link
-              href="profile"
+              href="/profile"
               className={twMerge(
-                "hover:text-primary",
+                "flex gap-2 hover:text-primary items-center",
                 router.asPath === "/profile" ? "text-primary" : ""
               )}
             >
+              <Image
+                src="/img/user.png"
+                alt="favorite"
+                width={20}
+                height={20}
+                className="w-[20px] h-[20px]"
+              />
               Profile
+            </Link>
+            <Link
+              href="/contact-us"
+              className={twMerge(
+                "flex gap-2 hover:text-primary items-centery",
+                router.asPath === "/profile" ? "text-primary" : ""
+              )}
+            >
+              <Image
+                src="/img/support.png"
+                alt="favorite"
+                width={20}
+                height={20}
+                className="w-[20px] h-[20px]"
+              />
+              Contact Us
+            </Link>
+            <Link
+              href="/privacyPolicy"
+              className={twMerge(
+                "flex gap-2 hover:text-primary items-centery",
+                router.asPath === "/profile" ? "text-primary" : ""
+              )}
+            >
+              <Image
+                src="/img/legal-document.png"
+                alt="favorite"
+                width={20}
+                height={20}
+                className="w-[20px] h-[20px]"
+              />
+              Privacy Policy
+            </Link>
+
+            <Link
+              href="/trips/booked"
+              className={twMerge(
+                "flex gap-2 hover:text-primary items-centery",
+                router.asPath === "/profile" ? "text-primary" : ""
+              )}
+            >
+              <Image
+                src="/img/swap.png"
+                alt="favorite"
+                width={20}
+                height={20}
+                className="w-[20px] h-[20px]"
+              />
+              Switch to host
             </Link>
             <span
               onClick={() => {
@@ -100,8 +176,17 @@ const Header = () => {
                 setMenuActive(false);
               }}
             >
-              <Link href="/" className="hover:text-primary">
-                {" "}
+              <Link
+                href="/"
+                className="flex gap-2 hover:text-primary items-centery"
+              >
+                <Image
+                  src="/img/power-off.png"
+                  alt="favorite"
+                  width={20}
+                  height={20}
+                  className="w-[20px] h-[20px]"
+                />
                 Logout
               </Link>
             </span>

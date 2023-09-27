@@ -26,11 +26,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     }
   };
   return (
-    <>
+    <div className="flex flex-col justify-between h-screen">
       <Header />
-      <div className="mt-[72px] min-h-[calc(100vh-40px)]">{children}</div>
+      <div className="mt-[72px]">{children}</div>
       <Footer />
-    </>
+    </div>
   );
 };
 

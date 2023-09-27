@@ -30,7 +30,7 @@ export const HostHeader = () => {
   const router = useRouter();
   const [menuActive, setMenuActive] = useState(false);
   const { loginPopup, setLoginPopup, userInfo, setUserInfo } =
-  useContext(CMSModal);
+    useContext(CMSModal);
 
   return (
     <header className="fixed bg-white shadow-xl top-0 w-full z-50">
@@ -46,7 +46,9 @@ export const HostHeader = () => {
                 href={item.url}
                 className={twMerge(
                   "flex items-center gap-2",
-                  router.pathname === item.url ? "text-primary" : ""
+                  router.pathname.includes(item.name.toLowerCase())
+                    ? "text-primary"
+                    : ""
                 )}
                 key={item.name}
               >
@@ -89,58 +91,98 @@ export const HostHeader = () => {
             </div>
           </div>
           {menuActive && (
-        <div className="absolute bg-white shadow-2xl top-[80px] p-4 rounded-lg w-[221px] right-[5%] text-secondary flex flex-col gap-4">
-          {/* {userInfo ? ( */}
-          <div className="flex flex-col gap-4 justify-center border-b p-2">
-            <Link
-              href="/favorites"
-              className={twMerge(
-                "flex gap-2 hover:text-primary items-center",
-                router.pathname === "/favorites" && "text-primary"
-              )}
-            >
-              Favorites
-              <Image
-                src="/img/love.png"
-                alt="favorite"
-                width={15}
-                height={15}
-                className="w-[14px] h-[14px]"
-              />
-            </Link>
+            <div className="absolute bg-white shadow-2xl top-[80px] p-4 rounded-lg w-[221px] right-[5%] text-secondary flex flex-col gap-4">
+              {/* {userInfo ? ( */}
 
-            <Link href="/trips/booked" className="hover:text-primary">
-              Trip
-            </Link>
-            <Link href="/inbox/messages" className="hover:text-primary">
-              Inbox
-            </Link>
-          </div>
-          <div className="flex flex-col gap-4 justify-center border-b p-2">
-            <Link
-              href="/profile"
-              className={twMerge(
-                "hover:text-primary",
-                router.asPath === "/profile" ? "text-primary" : ""
-              )}
-            >
-              Profile
-            </Link>
-            <span
-              onClick={() => {
-                toast.success("User Logout Successfully");
-                deleteCookie("token");
-                setUserInfo("");
-                setMenuActive(false);
-              }}
-            >
-              <Link href="/" className="hover:text-primary">
-                {" "}
-                Logout
-              </Link>
-            </span>
-          </div>
-          {/* ) : (
+              <div className="flex flex-col gap-4 justify-center border-b p-2">
+                <Link
+                  href="/profile"
+                  className={twMerge(
+                    "flex gap-2 hover:text-primary items-center",
+                    router.asPath === "/profile" ? "text-primary" : ""
+                  )}
+                >
+                  <Image
+                    src="/img/user.png"
+                    alt="favorite"
+                    width={20}
+                    height={20}
+                    className="w-[20px] h-[20px]"
+                  />
+                  Profile
+                </Link>
+                <Link
+                  href="/contact-us"
+                  className={twMerge(
+                    "flex gap-2 hover:text-primary items-centery",
+                    router.asPath === "/profile" ? "text-primary" : ""
+                  )}
+                >
+                  <Image
+                    src="/img/support.png"
+                    alt="favorite"
+                    width={20}
+                    height={20}
+                    className="w-[20px] h-[20px]"
+                  />
+                  Contact Us
+                </Link>
+                <Link
+                  href="/privacyPolicy"
+                  className={twMerge(
+                    "flex gap-2 hover:text-primary items-centery",
+                    router.asPath === "/profile" ? "text-primary" : ""
+                  )}
+                >
+                  <Image
+                    src="/img/legal-document.png"
+                    alt="favorite"
+                    width={20}
+                    height={20}
+                    className="w-[20px] h-[20px]"
+                  />
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/"
+                  className={twMerge(
+                    "flex gap-2 hover:text-primary items-centery",
+                    router.asPath === "/profile" ? "text-primary" : ""
+                  )}
+                >
+                  <Image
+                    src="/img/swap.png"
+                    alt="favorite"
+                    width={20}
+                    height={20}
+                    className="w-[20px] h-[20px]"
+                  />
+                  Switch to guest
+                </Link>
+                <span
+                  onClick={() => {
+                    toast.success("User Logout Successfully");
+                    deleteCookie("token");
+                    setUserInfo("");
+                    setMenuActive(false);
+                  }}
+                >
+                  <Link
+                    href="/"
+                    className="flex gap-2 hover:text-primary items-centery"
+                  >
+                    <Image
+                      src="/img/power-off.png"
+                      alt="favorite"
+                      width={20}
+                      height={20}
+                      className="w-[20px] h-[20px]"
+                    />
+                    Logout
+                  </Link>
+                </span>
+              </div>
+              {/* ) : (
             <div className="flex flex-col gap-4">
               <span
                 className="cursor-pointer"
@@ -162,8 +204,8 @@ export const HostHeader = () => {
               </span>
             </div>
           )} */}
-        </div>
-      )}
+            </div>
+          )}
         </div>
       </div>
     </header>

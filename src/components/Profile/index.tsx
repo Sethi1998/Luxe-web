@@ -11,7 +11,7 @@ export const Profile = () => {
   return (
     <Layout>
       <Container>
-        {userInfo && (
+        {/* {userInfo && ( */}
           <>
             <div
               className="border-2 h-[200px] rounded-xl flex flex-col-reverse bg-contain"
@@ -79,7 +79,7 @@ export const Profile = () => {
               </span>
             </div>
           </>
-        )}
+        {/* )} */}
       </Container>
     </Layout>
   );
