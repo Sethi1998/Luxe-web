@@ -49,10 +49,11 @@ export function Arrow(props: any) {
 }
 export const settings = {
   infinite: true,
-  slidesToShow: 4,
+  slidesToShow: 3,
   slidesToScroll: 1,
   speed: 500,
   background: "#5660C0",
+
   responsive: [
     {
       breakpoint: 600,
@@ -77,7 +78,7 @@ export const ReactSlider = ({ arrayData }: SliderProp) => {
     <Slider {...settings}>
       {arrayData.map((item) => (
         <div key={item._id} className="p-8">
-          <div className="sliderwarpper flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat gap-2 w-[300px] h-[150px] shadow-xl">
+          <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat gap-2 w-[300px] h-[150px] shadow-xl">
             <img
               src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.companyImg}`}
               alt="slider"
