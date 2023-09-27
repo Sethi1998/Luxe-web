@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Layout from "./common/Layout";
 import Container from "./common/Container";
 import Link from "next/link";
