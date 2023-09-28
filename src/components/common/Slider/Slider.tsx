@@ -48,8 +48,8 @@ export function Arrow(props: any) {
   );
 }
 export const settings = {
-  infinite: true,
-  slidesToShow: 3,
+  infinite: false,
+  slidesToShow: 4,
   slidesToScroll: 1,
   speed: 500,
   background: "#5660C0",
@@ -58,7 +58,7 @@ export const settings = {
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 1,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
         infinite: true,
@@ -77,15 +77,15 @@ export const ReactSlider = ({ arrayData }: SliderProp) => {
   return (
     <Slider {...settings}>
       {arrayData.map((item) => (
-        <div key={item._id} className="p-12">
-          <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat  w-[300px] h-[150px] shadow-xl">
+        <div key={item._id} className="px-6 lg:px-12 py-6">
+          <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat w-[150px] h-[100px] lg:w-[200px] lg:h-[170px] shadow-xl">
             <img
               src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.companyImg}`}
               alt="slider"
               onClick={() => router.push(`/car-rental/uk/ferrari`)}
-              className="w-[100px] object-cover"
+              className="w-[60px] lg:w-[100px] object-cover"
             />
-            <h2 className="font-semibold">{item.companyName}</h2>
+            <h2 className="font-semibold lg:text-xl">{item.companyName}</h2>
           </div>
         </div>
       ))}
