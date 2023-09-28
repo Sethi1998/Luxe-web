@@ -61,7 +61,7 @@ export const settings = {
         slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
-        infinite: true,
+        infinite: false,
       },
     },
     {
