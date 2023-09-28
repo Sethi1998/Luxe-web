@@ -57,7 +57,7 @@ export const SearchSection = () => {
       </div>
       <div className="lg:w-[300px] h-[60px] flex flex-col rounded-full border border-[#AAA] px-6 py-2 gap-1">
         <label className="text-xs text-left">From</label>
-        <div className="flex gap-1 text-primary items-center font-semibold">
+        <div className="flex gap-2 text-primary items-center font-semibold">
           <span
             className="cursor-pointer"
             onClick={() => {
