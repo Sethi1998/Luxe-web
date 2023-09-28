@@ -19,7 +19,7 @@ export const Favorites = () => {
           </h2>
           <Image src="/img/lover.png" width={20} height={20} alt="love" />
         </div>
-        <div className="flex flex-col mt-10 lg:grid grid-cols-3 gap-10 items-center">
+        <div className="flex flex-col items-center mt-10 lg:grid grid-cols-3 gap-10 items-center">
           <FavoriteCard
             label="Mercedes Benz"
             img="/HomeBanner.jpg"

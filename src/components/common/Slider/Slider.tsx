@@ -33,11 +33,11 @@ export function Arrow(props: any) {
   className += " arrow";
   const char =
     props.type === "next" ? (
-      <div className="absolute cursor-pointer top-[42%] lg:top-[55%] right-[-20px] w-10 h-10 flex justify-center items-center">
+      <div className="absolute cursor-pointer top-[50%] lg:top-[55%] right-[-20px] w-10 h-10 flex justify-center items-center">
         <RightArrow />
       </div>
     ) : (
-      <div className="absolute cursor-pointer top-[42%] lg:top-[55%] left-[-20px] w-10 h-10  flex justify-center items-center">
+      <div className="absolute cursor-pointer top-[50%] lg:top-[55%] left-[-20px] w-10 h-10  flex justify-center items-center">
         <LeftArrow />
       </div>
     );
@@ -77,8 +77,8 @@ export const ReactSlider = ({ arrayData }: SliderProp) => {
   return (
     <Slider {...settings}>
       {arrayData.map((item) => (
-        <div key={item._id} className="p-8">
-          <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat gap-2 w-[300px] h-[150px] shadow-xl">
+        <div key={item._id} className="p-12">
+          <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat  w-[300px] h-[150px] shadow-xl">
             <img
               src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.companyImg}`}
               alt="slider"

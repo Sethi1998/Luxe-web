@@ -44,92 +44,101 @@ export const SearchSection = () => {
 
   return (
     <div className="flex flex-col bg-white rounded-xl items-centerl gap-6 lg:flex-row lg:h-[120px] lg:rounded-full py-10 px-2 lg:px-10 text-xs lg:text-sm items-center">
-      <div className="w-full lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center jsutify-center px-4 gap-4">
-        <LocationIcon />
-        <input
-          ref={ref}
-          className="text-primary font-semibold w-full border-none outline-none"
-          placeholder="City, airport,address or hotel"
-        />
+      <div className="flex flex-col rounded-full border border-[#AAA] w-full lg:w-[300px] h-[60px]  px-6 py-2  gap-1">
+        <label className="text-xs text-left">Where</label>
+        <div className="flex gap-4">
+          <LocationIcon />
+          <input
+            ref={ref}
+            className="text-primary font-semibold w-full border-none outline-none"
+            placeholder="City, airport,address or hotel"
+          />
+        </div>
       </div>
-      <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center justify-center px-4 gap-4 text-primary font-semibold">
-        <span
-          className="cursor-pointer"
-          onClick={() => {
-            startDateRef?.current?.showPicker();
-          }}
-        >
-          <CalendarIcon />
-        </span>
-        <input
-          className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
-          placeholder="Start Date"
-          name="startDate"
-          type="date"
-          value={searchField.startDate}
-          onChange={handleChange}
-          ref={startDateRef}
-          onClick={(e: any) => {
-            startDateRef?.current?.showPicker();
-          }}
-        />
-        <span>|</span>
-        <span className="cursor-pointer">
-          <TimeIcon />
-        </span>
-        <input
-          type="time"
-          name="startTime"
-          ref={startTimeRef}
-          onChange={handleChange}
-          className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
-          value={searchField.startTime}
-          onClick={(e: any) => {
-            startTimeRef?.current?.showPicker();
-          }}
-        />
+      <div className="lg:w-[300px] h-[60px] flex flex-col rounded-full border border-[#AAA] px-6 py-2 gap-1">
+        <label className="text-xs text-left">From</label>
+        <div className="flex gap-1 text-primary items-center font-semibold">
+          <span
+            className="cursor-pointer"
+            onClick={() => {
+              startDateRef?.current?.showPicker();
+            }}
+          >
+            <CalendarIcon />
+          </span>
+          <input
+            className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
+            placeholder="Start Date"
+            name="startDate"
+            type="date"
+            value={searchField.startDate}
+            onChange={handleChange}
+            ref={startDateRef}
+            onClick={(e: any) => {
+              startDateRef?.current?.showPicker();
+            }}
+          />
+          <span>|</span>
+          <span className="cursor-pointer">
+            <TimeIcon />
+          </span>
+          <input
+            type="time"
+            name="startTime"
+            ref={startTimeRef}
+            onChange={handleChange}
+            className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
+            value={searchField.startTime}
+            onClick={(e: any) => {
+              startTimeRef?.current?.showPicker();
+            }}
+          />
+        </div>
       </div>
-      <div className="lg:w-[300px] h-[50px] flex rounded-full border border-[#AAA] items-center justify-center px-4 gap-4 text-primary font-semibold lg:w-[362px]">
-        <span
-          className="cursor-pointer"
-          onClick={() => {
-            endDateRef?.current?.showPicker();
-          }}
-        >
-          <CalendarIcon />
-        </span>
-        <input
-          className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
-          placeholder="End Date"
-          ref={endDateRef}
-          name="endDate"
-          type="date"
-          onClick={() => {
-            endDateRef?.current?.showPicker();
-          }}
-          value={searchField.endDate}
-          onChange={handleChange}
-        />
-        <span>|</span>
-        <span
-          className="cursor-pointer"
-          onClick={() => {
-            endTimeRef?.current?.showPicker();
-          }}
-        >
-          <TimeIcon />
-        </span>
-        <input
-          type="time"
-          ref={endTimeRef}
-          className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
-          value={searchField.endTime}
-          onChange={handleChange}
-          name="endTime"
-          onClick={(e: any) => {
-            endTimeRef?.current?.showPicker();
-          }}
-        />
+      <div className="lg:w-[300px] h-[60px] flex flex-col rounded-full border border-[#AAA] px-6 py-2  gap-1">
+        <label className="text-xs text-left">Until</label>
+        <div className="flex gap-2 text-primary items-center font-semibold">
+          <span
+            className="cursor-pointer"
+            onClick={() => {
+              endDateRef?.current?.showPicker();
+            }}
+          >
+            <CalendarIcon />
+          </span>
+          <input
+            className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
+            placeholder="End Date"
+            ref={endDateRef}
+            name="endDate"
+            type="date"
+            onClick={() => {
+              endDateRef?.current?.showPicker();
+            }}
+            value={searchField.endDate}
+            onChange={handleChange}
+          />
+          <span>|</span>
+          <span
+            className="cursor-pointer"
+            onClick={() => {
+              endTimeRef?.current?.showPicker();
+            }}
+          >
+            <TimeIcon />
+          </span>
+          <input
+            type="time"
+            ref={endTimeRef}
+            className="text-primary font-semibold w-full border-none outline-none cursor-pointer"
+            value={searchField.endTime}
+            onChange={handleChange}
+            name="endTime"
+            onClick={(e: any) => {
+              endTimeRef?.current?.showPicker();
+            }}
+          />
+        </div>
       </div>
     </div>
   );

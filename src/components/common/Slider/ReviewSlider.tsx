@@ -72,7 +72,7 @@ export const ReviewSlider = () => {
         {imgArr.map((item, i) => (
           <div key={i} className="p-8">
             <div className="sliderwarpper flex rounded-lg h-[250px] text-center border text-white ">
-              <div className="flex flex-col gap-4 p-4 ">
+              <div className="flex flex-col gap-4 p-4 items-center">
                 <div className="flex gap-2">
                   <Image src={item.name} width={20} height={20} alt="profile" className="rounded-full"/>
                   <h2>yash</h2>

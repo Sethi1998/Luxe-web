@@ -26,9 +26,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     }
   };
   return (
-    <div className="flex flex-col justify-between h-screen">
+    <div className="w-screen flex flex-col justify-between h-screen">
       <Header />
-      <div className="mt-[72px]">{children}</div>
+      <div className="mt-[92px]">{children}</div>
       <Footer />
     </div>
   );

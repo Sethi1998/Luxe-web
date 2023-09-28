@@ -22,21 +22,30 @@ const array = [
 ];
 export const FindLuxury = () => {
   return (
-    <Container>
-      <h1 className="font-bold text-4xl text-center">Find Your Luxury Car</h1>
-      <div className="grid grid-cols-2 gap-6 lg:flex mt-6 justify-around ">
-        {array.map((item) => (
-          <div className="flex flex-col gap-2 text-center" key={item.name}>
-            <Link
-              href={`/car-rental/united/${item.name}`}
-              className="border-2 rounded-xl p-2 w-[150px] flex justify-center "
-            >
-              <Image src={item.img} width={100} height={100} alt="luxury" />
-            </Link>
-            <h2 className="font-bold text-xl">{item.name}</h2>
+    <div className="pl-2">
+      <Container>
+        <div className="w-full">
+          <h1 className="font-bold text-4xl text-center">
+            Find Your Luxury Car
+          </h1>
+          <div className="grid grid-cols-2 gap-6 w-full lg:flex mt-6 justify-around">
+            {array.map((item) => (
+              <div
+                className="flex flex-col gap-2 text-center items-center"
+                key={item.name}
+              >
+                <Link
+                  href={`/car-rental/united/${item.name}`}
+                  className="border-2 rounded-xl p-2 w-[150px] flex justify-center "
+                >
+                  <Image src={item.img} width={100} height={100} alt="luxury" />
+                </Link>
+                <h2 className="font-bold text-xl">{item.name}</h2>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </Container>
+        </div>
+      </Container>
+    </div>
   );
 };
