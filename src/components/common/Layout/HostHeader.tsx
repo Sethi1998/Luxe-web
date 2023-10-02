@@ -15,15 +15,18 @@ const headerLinks = [
   {
     name: "Trips",
     url: "/trips/booked",
+    img: "/img/road.png",
   },
 
   {
     name: "Inbox",
     url: "/inbox/messages",
+    img: "/img/chat-bubble.png",
   },
   {
     name: "Vehicles",
     url: "/vehicles/listing",
+    img: "/car.png",
   },
 ];
 export const HostHeader = () => {
@@ -110,6 +113,45 @@ export const HostHeader = () => {
                     className="w-[20px] h-[20px]"
                   />
                   Profile
+                </Link>{" "}
+                <div className="flex flex-col gap-4 lg:hidden">
+                  {headerLinks.map((item) => (
+                    <Link
+                      href={item.url}
+                      className={twMerge(
+                        "flex items-center gap-2",
+                        router.pathname.includes(item.name.toLowerCase())
+                          ? "text-primary"
+                          : ""
+                      )}
+                      key={item.name}
+                    >
+                      <Image
+                        src={item.img}
+                        alt="favorite"
+                        width={20}
+                        height={20}
+                        className="w-[20px] h-[20px]"
+                      />
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+                <Link
+                  href="/earnings"
+                  className={twMerge(
+                    "flex gap-2 hover:text-primary items-centery",
+                    router.asPath === "/profile" ? "text-primary" : ""
+                  )}
+                >
+                  <Image
+                    src="/img/transaction.png"
+                    alt="favorite"
+                    width={20}
+                    height={20}
+                    className="w-[20px] h-[20px]"
+                  />
+                  Transcations
                 </Link>
                 <Link
                   href="/contact-us"

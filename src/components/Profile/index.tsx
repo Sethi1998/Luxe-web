@@ -17,7 +17,7 @@ export const Profile = () => {
               className="border-2 h-[200px] rounded-xl flex flex-col-reverse bg-contain"
               style={{ backgroundImage: `url(${banner})` }}
             >
-              <span className="relative top-[30%] left-10 ">
+              <span className="w-[97%] relative top-[30%] left-10 ">
                 <img
                   src={
                     userInfo?.profileImg

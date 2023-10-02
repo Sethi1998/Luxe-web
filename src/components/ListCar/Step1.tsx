@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SecondaryInput } from "../common/SecondaryInput";
 import { RSelect } from "../common/RSelect";
 import { SecondaryButton } from "../common/Button/SecondaryButton";
+import { usePlacesWidget } from "react-google-autocomplete";
+import { apiHandler } from "@/services/api";
+import {
+  getCompanies,
+  getSubCategories,
+  getVehicleTypes,
+} from "@/services/api/constants";
+import { VehicleCompany, VehicleModel, VehicleType, colors, years } from "./types";
 export interface StepProp {
   formStep: any;
   setFormStep: (value: any) => void;
@@ -13,7 +21,8 @@ export interface StepProp {
 }
 const EmailSchema = yup.object().shape({
   location: yup.string().required("Location is required"),
-  vehicleCompany: yup.string().required("Company is required"),
+  vehicleType: yup.string().required("Vehicle Type is required"),
+  make: yup.string().required("Make is required"),
   vehicleYear: yup.number().required("Company is required"),
 });
 export const Step1 = ({
@@ -22,11 +31,65 @@ export const Step1 = ({
   formData,
   setFormData,
 }: StepProp) => {
+  const [vehicleTypes, setVehicleTypes] = useState<VehicleType[]>([]);
+  const [vehicleCompanies, setVehicleCompanies] = useState<VehicleCompany[]>(
+    []
+  );
+  const [vehicleModel, setVehicleModel] = useState<VehicleModel[]>([]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm({ resolver: yupResolver(EmailSchema) });
+  const vehcileCompanyWatch = watch("make");
+  console.log(vehcileCompanyWatch, "companyWatch");
+
+  useEffect(() => {
+    fetchVehicleTypes();
+    fetchVehicleCategory();
+  }, []);
+  useEffect(() => {
+    fetchVehicleSubCategory(vehcileCompanyWatch);
+  }, [vehcileCompanyWatch]);
+
+  const fetchVehicleTypes = async () => {
+    const res = await apiHandler(`${getVehicleTypes}`, "GET");
+    setVehicleTypes(res.data.data);
+  };
+  const fetchVehicleCategory = async () => {
+    const res = await apiHandler(`${getCompanies}`, "GET");
+    setVehicleCompanies(res.data.data);
+  };
+  const fetchVehicleSubCategory = async (category: string) => {
+    const res = await apiHandler(
+      `${getSubCategories}?filter=${category}`,
+      "GET"
+    );
+    setVehicleModel(res.data.data);
+  };
+  const vehicleTypeSelect = vehicleTypes.map((item) => ({
+    value: item._id,
+    label: item.vehicleTypeName,
+  }));
+  const vehicleCompany = vehicleCompanies.map((item) => ({
+    value: item._id,
+    label: item.companyName,
+  }));
+  const vehicleColors = colors.map((item) => ({
+    value: item,
+    label: item,
+  }));
+  const vehicleYears = years.map((item) => ({
+    value: item,
+    label: item,
+  }));
+  const models =vehicleModel?.map((item) => ({
+    value: item._id,
+    label: item.subCategoryName,
+  }));
+
   return (
     <form
       className="flex flex-col gap-4"
@@ -48,18 +111,18 @@ export const Step1 = ({
       />
       <div className="lg:grid grid-cols-2 gap-4 w-full flex flex-col gap-4">
         <RSelect
-          name="vehicleCompany"
-          label="Which Company Car you have?"
+          name="vehicleType"
+          label="Select Vehicle Type?"
           register={register}
-          option={[]}
-          defaultOption="Select Vehicle Company"
+          option={vehicleTypeSelect}
+          defaultOption="Select Vehicle Type"
         />
         <RSelect
           name="vehicleName"
-          label="Year of Vehicle ?"
+          label="Year of Vehicle?"
           register={register}
           defaultOption="Select Year"
-          option={[]}
+          option={vehicleYears}
         />
       </div>
       <div className="lg:grid grid-cols-2 gap-4 w-full flex flex-col gap-4">
@@ -67,15 +130,15 @@ export const Step1 = ({
           name="make"
           label="Make"
           register={register}
-          option={[]}
-          defaultOption="Select Year"
+          option={vehicleCompany}
+          defaultOption="Select Make"
         />
-        <SecondaryInput
-          label="Plate Number"
-          name="plateNumber"
-          type="text"
-          error={errors.location?.message}
+        <RSelect
+          name="model"
+          label="Select Vehicle Model"
           register={register}
+          option={models||[]}
+          defaultOption="Select Vehicle Model"
         />
       </div>
       <div className="lg:grid grid-cols-2 gap-6 w-full flex flex-col gap-4">
@@ -86,12 +149,12 @@ export const Step1 = ({
           error={errors.location?.message}
           register={register}
         />
-        <SecondaryInput
-          label="Color"
+        <RSelect
           name="color"
-          type="text"
-          error={errors.location?.message}
+          label="Select Vehicle Color"
           register={register}
+          option={vehicleColors}
+          defaultOption="Select Vehicle Color"
         />
       </div>
       <div className="flex gap-4">

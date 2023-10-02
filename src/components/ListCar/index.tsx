@@ -22,11 +22,11 @@ export const ListCar = () => {
     : formStep.step3
     ? 3
     : 4;
-
+ 
   return (
     <Hostlayout>
       <Container>
-        <div className="lg:absolute lg:top-[20%] lg:left-[32%] text-white w-full">
+        <div className="lg:relative lg:top-[20%] lg:left-[28%] text-white w-full">
           <div className="flex flex-col gap-4 bg-primary p-6 rounded-xl lg:w-[600px] w-full">
             <div>
               <h2 className="font-bold text-xl">List Your Car</h2>

@@ -15,10 +15,10 @@ export const CarListingCard = () => {
         width={300}
         height={300}
         alt="listing"
-        className="rounded-l-xl"
+        className="w-[200px] rounded-l-xl lg:[w-300px]"
       />
-      <div className="flex flex-col gap-1 p-2 w-full">
-        <h2 className="font-bold">Merceds Benz 2022</h2>
+      <div className="flex flex-col gap-1 p-2 w-full text-sm lg:text-lg">
+        <h2 className="font-bold ">Merceds Benz 2022</h2>
         <span>5.0⭐️ (2 trip)</span>
         <span className="flex gap-2 items-center">
           <Image src="/location.png" width={15} height={15} alt="loctaion" />

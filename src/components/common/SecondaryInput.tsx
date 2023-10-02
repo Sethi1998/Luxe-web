@@ -7,6 +7,7 @@ interface InputProps {
   register?: any;
   type: string;
   img?: string;
+  ref?:any
 }
 export const SecondaryInput = ({
   label,
@@ -15,6 +16,7 @@ export const SecondaryInput = ({
   error,
   register,
   img,
+  ref
 }: InputProps) => {
   return (
     <div className="flex flex-col gap-1">
@@ -22,6 +24,7 @@ export const SecondaryInput = ({
       <div className="flex border-2 rounded p-2 items-center bg-white">
         <input
           name={label}
+          ref={ref}
           placeholder={label}
           aria-invalid={error ? "true" : "false"}
           {...register(name)}

@@ -17,9 +17,20 @@ export const CarRentalListing = () => {
       <Container>
         <div className="flex flex-col gap-6">
           <SearchSection />
+          <div className="">
+            {!isLoaded ? (
+              <h1>Loading...</h1>
+            ) : (
+              <GoogleMap
+                mapContainerClassName="map-container"
+                center={center}
+                zoom={10}
+              />
+            )}
+          </div>
           <h2 className="text-xl font-bold">44 Cars availaible</h2>
           <div className="flex w-full gap-10 h-full">
-            <div className="flex-[1.5] overflow-y-scroll flex flex-col gap-4">
+            <div className="lg:flex lg:flex-[1.5] overflow-y-scroll flex flex-col gap-4">
               <CarListingCard />
               <CarListingCard />
               <CarListingCard />
@@ -27,7 +38,7 @@ export const CarRentalListing = () => {
               <CarListingCard />
               <CarListingCard />
             </div>
-            <div className="flex-[1.2]">
+            <div className="hidden lg:flex lg:flex-[1.2]">
               {!isLoaded ? (
                 <h1>Loading...</h1>
               ) : (

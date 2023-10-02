@@ -7,7 +7,14 @@ interface SelectProps {
   option: any;
   defaultOption: string;
 }
-export const RSelect = ({ label, name, error, register,defaultOption,option }: SelectProps) => {
+export const RSelect = ({
+  label,
+  name,
+  error,
+  register,
+  defaultOption,
+  option,
+}: SelectProps) => {
   return (
     <div>
       <label>{label}</label>
@@ -19,7 +26,11 @@ export const RSelect = ({ label, name, error, register,defaultOption,option }: S
           {...register(name)}
         >
           <option defaultChecked>{defaultOption}</option>
-          <option>BMW</option> <option>Mercedes</option>
+          {option.map((item:any) => (
+            <>
+              <option key={item.value} value={item.value}>{item.label}</option>
+            </>
+          ))}
         </select>
       </div>
       <p className="p-1 text-red-500 font-semibold">{error && error}</p>

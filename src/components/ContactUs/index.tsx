@@ -26,8 +26,7 @@ export const ContactUs = () => {
       <Container>
         <div className="flex flex-col items-center w-full gap-8 py-10 lg:py-32">
         <h2 className="font-semibold text-2xl lg:text-4xl">Contact Support</h2>
-
-          <form className="flex flex-col gap-4 w-[60%]">
+          <form className="flex flex-col gap-4 w-[50%]">
             <Input
               label="Title"
               name="title"

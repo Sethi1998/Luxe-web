@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Container from "../Container";
 import Image from "next/image";
+import { SecondaryButton } from "../Button/SecondaryButton";
 
 const Footer = () => {
   return (
@@ -39,11 +40,32 @@ const Footer = () => {
             </div>
             <div className="flex flex-col gap-2 mt-2">
               <h2 className="font-bold">Info</h2>
-              <Link href=''>Faq</Link>
-              <Link href='/privacyPolicy'>Privacy policy</Link>
-              <Link href='/terms'>Terms & Conditions</Link>
+              <Link href="">Faq</Link>
+              <Link href="/privacyPolicy">Privacy policy</Link>
+              <Link href="/terms">Terms & Conditions</Link>
             </div>
           </div>
+        </div>
+        <div className="flex justify-center gap-10 mt-6 text-center">
+          <Link
+            href="/"
+            className="flex bg-white items-center text-black p-2 rounded-xl w-[150px] text-xs justify-center justify-around"
+          >
+            <Image src="/apple-logo.png" width={20} height={20} alt="social" />
+            <span>
+              Download on the <span className="font-semibold">App Store</span>
+            </span>
+          </Link>
+          <Link
+            href="/"
+            className="flex bg-white items-center text-black p-2 rounded-xl w-[130px] text-xs justify-around"
+          >
+            <Image src="/google-play.png" width={20} height={20} alt="social" />
+            <span>
+              Get it on<br></br> <span className="font-semibold">Google Play</span>
+            </span>
+          </Link>
+          <div></div>
         </div>
       </Container>
     </footer>

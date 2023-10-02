@@ -13,14 +13,14 @@ export const FavoriteCard = ({
   price,
 }: FavoriteCardProp) => {
   return (
-    <div className="rounded-xl shadow-2xl w-[300px] flex flex-col items-center gap-2">
+    <div className="rounded-xl shadow-2xl lg:w-[400px] flex flex-col items-center gap-2">
       <div>
         <Image
           src={img}
-          width={300}
+          width={400}
           height={300}
           alt="favorite"
-          className="w-full rounded-t-xl"
+          className="rounded-t-xl w-[350px] lg:w-[400px]"
         />
       </div>
       <div className="flex flex-col gap-2 p-2 text-left w-full">
