@@ -14,10 +14,10 @@ export const Profile = () => {
         {/* {userInfo && ( */}
           <>
             <div
-              className="border-2 h-[200px] rounded-xl flex flex-col-reverse bg-contain"
+              className="relative border-2 h-[200px] rounded-xl flex flex-col-reverse bg-contain"
               style={{ backgroundImage: `url(${banner})` }}
             >
-              <span className="w-[97%] relative top-[30%] left-10 ">
+              <span className="w-full absolute top-[50%] p-10">
                 <img
                   src={
                     userInfo?.profileImg
@@ -25,7 +25,7 @@ export const Profile = () => {
                       : "/Vector.png"
                   }
                   alt="profile"
-                  className="flex w-[150px] h-[150px] rounded-[100%] border-2 bg-contain z-[999]"
+                  className="flex w-[100px] h-[100px]  rounded-[100%] border-2 bg-contain z-[999]"
                 />
               </span>
             </div>

@@ -46,20 +46,22 @@ export const ReviewSlider = () => {
     slidesToShow: 3,
     speed: 500,
     centerPadding: "30px",
+    autoplay: false,
+
     responsive: [
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          autoplay: true,
-          infinite: true,
+          autoplay: false,
+          infinite: false,
         },
       },
       {
         breakpoint: 900,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
     ],

@@ -6,7 +6,7 @@ import { SecondaryButton } from "../Button/SecondaryButton";
 
 const Footer = () => {
   return (
-    <footer className="w-[103%] lg:w-full bg-primary text-white">
+    <footer className="w-full bg-primary text-white">
       <Container>
         <div className="flex gap-10 flex-col lg:flex-row">
           <div className="flex-[1.5] flex flex-col gap-4">

@@ -24,32 +24,36 @@ export const ContactUs = () => {
   return (
     <Layout>
       <Container>
-        <div className="flex flex-col items-center w-full gap-8 py-10 lg:py-32">
-        <h2 className="font-semibold text-2xl lg:text-4xl">Contact Support</h2>
-          <form className="flex flex-col gap-4 w-[50%]">
-            <Input
-              label="Title"
-              name="title"
-              type="text"
-              error={errors.title?.message}
-              register={register}
-            />
-            <Input
-              label="Email"
-              name="email"
-              type="text"
-              error={errors.email?.message}
-              register={register}
-            />
-            <Input
-              label="Message"
-              name="message"
-              type="text"
-              error={errors.message?.message}
-              register={register}
-            />
-            <PrimaryButton label="Submit" type={ButtonType.submit} />
-          </form>
+        <div className="flex flex-col gap-10 py-10 lg:py-20">
+          <h2 className="font-semibold text-2xl lg:text-4xl text-left lg:text-center">
+            Contact Support
+          </h2>
+          <div className="flex flex-col items-center w-full gap-8">
+            <form className="flex flex-col gap-4 w-full lg:w-[50%]">
+              <Input
+                label="Title"
+                name="title"
+                type="text"
+                error={errors.title?.message}
+                register={register}
+              />
+              <Input
+                label="Email"
+                name="email"
+                type="text"
+                error={errors.email?.message}
+                register={register}
+              />
+              <Input
+                label="Message"
+                name="message"
+                type="text"
+                error={errors.message?.message}
+                register={register}
+              />
+              <PrimaryButton label="Submit" type={ButtonType.submit} />
+            </form>
+          </div>
         </div>
       </Container>
     </Layout>

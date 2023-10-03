@@ -44,7 +44,7 @@ export const SearchSection = () => {
   console.log(searchField, "seaaa");
 
   return (
-    <div className="flex flex-col bg-white rounded-xl items-centerl gap-4 lg:flex-row lg:h-[120px] lg:rounded-full py-5 lg:py-10 px-2 lg:px-10 text-xs lg:text-sm items-center">
+    <div className="flex flex-col bg-white rounded-xl gap-4 lg:flex-row lg:h-[120px] lg:rounded-full py-5 lg:py-10 px-8 lg:px-10 text-xs lg:text-sm items-center">
       <div className="flex flex-col rounded-full border border-[#AAA] w-full lg:w-[300px] h-[60px]  px-6 py-2  gap-1">
         <label className="text-xs text-left">Where</label>
         <div className="flex gap-4">

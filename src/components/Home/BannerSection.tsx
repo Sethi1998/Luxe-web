@@ -11,7 +11,7 @@ export const BannerSection = () => {
 
   return (
     <div
-      className="w-[103%] flex items-center justify-center h-[500px] bg-no-repeat bg-cover bg-gradient-lightgray-[50%] lg:w-full"
+      className="flex items-center justify-center h-[500px] bg-no-repeat bg-cover bg-gradient-lightgray-[50%] w-full"
       style={{ backgroundImage: "url(/HomeBanner.jpg)" }}
     >
       <Container>

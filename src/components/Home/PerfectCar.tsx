@@ -13,10 +13,10 @@ export const PerfectCar = () => {
         alt="Perfect"
         width="561"
         height="661"
-        className="absolute top-[100px] lg:top-[130px] w-[350px] lg:w-[561px]"
+        className="absolute top-[100px] lg:top-[130px] w-[350px] md:left-[180px] lg:left-0 lg:w-[561px]"
       />
       <Container>
-        <div className="flex flex-col gap-6 justify-between w-full lg:flex-row">
+        <div className="flex flex-col gap-6 justify-between w-full lg:flex-row md:items-center">
           <BgIcon className="w-[350px] lg:w-[550px]" />
           <div className="flex flex-col gap-6 lg:w-[40%]">
             <h2 className="font-semibold capitalize text-center lg:text-left lg:text-4xl lg:leading-[72px] ">

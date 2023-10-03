@@ -33,11 +33,11 @@ export function Arrow(props: any) {
   className += " arrow";
   const char =
     props.type === "next" ? (
-      <div className="absolute cursor-pointer top-[50%] lg:top-[55%] right-[-20px] w-10 h-10 flex justify-center items-center">
+      <div className="absolute cursor-pointer top-[45%] lg:top-[45%] right-[-20px] w-10 h-10 flex justify-center items-center">
         <RightArrow />
       </div>
     ) : (
-      <div className="absolute cursor-pointer top-[50%] lg:top-[55%] left-[-20px] w-10 h-10  flex justify-center items-center">
+      <div className="absolute cursor-pointer top-[45%] lg:top-[45%] left-[-20px] w-10 h-10  flex justify-center items-center">
         <LeftArrow />
       </div>
     );
@@ -53,21 +53,21 @@ export const settings = {
   slidesToScroll: 1,
   speed: 500,
   background: "#5660C0",
-
+  autoplay: false,
   responsive: [
     {
       breakpoint: 600,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         infinite: false,
       },
     },
     {
       breakpoint: 900,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 3,
       },
     },
   ],
@@ -78,7 +78,7 @@ export const ReactSlider = ({ arrayData }: SliderProp) => {
     <Slider {...settings}>
       {arrayData.map((item) => (
         <div key={item._id} className="px-6 lg:px-12 py-6">
-          <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat w-[150px] h-[100px] lg:w-[200px] lg:h-[170px] shadow-xl">
+          <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat w-[130px] h-[100px] lg:w-[200px] lg:h-[170px] shadow-xl">
             <img
               src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.companyImg}`}
               alt="slider"
