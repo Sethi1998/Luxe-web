@@ -53,7 +53,7 @@ export const Chat = () => {
             </div>
           </div>
           <div className="mt-32 flex justify-center w-full">
-            <div className="flex flex-col gap-6 w-[60%]">
+            <div className="flex flex-col gap-6 w-full lg:w-[60%]">
               <textarea
                 placeholder="Some Text"
                 className="w-full border-2 rounded-lg p-2"
