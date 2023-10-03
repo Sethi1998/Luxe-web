@@ -87,7 +87,7 @@ export const Step4 = ({ formStep, setFormStep }: StepProp) => {
       </div>
       <div className="flex flex-col gap-2 w-full">
         <label>Description</label>
-        <textarea />
+        <textarea className="rounded-xl min-h-[100px]"/>
       </div>
       <SecondaryButton label="Submit" />
     </form>
