@@ -48,12 +48,14 @@ export function Arrow(props: any) {
   );
 }
 export const settings = {
+  className: "center",
   infinite: false,
   slidesToShow: 4,
   slidesToScroll: 1,
   speed: 500,
   background: "#5660C0",
   autoplay: false,
+  centerPadding: "30px",
   responsive: [
     {
       breakpoint: 600,
@@ -75,20 +77,24 @@ export const settings = {
 export const ReactSlider = ({ arrayData }: SliderProp) => {
   const router = useRouter();
   return (
-    <Slider {...settings}>
-      {arrayData.map((item) => (
-        <div key={item._id} className="px-6 lg:px-12 py-6">
-          <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat w-[130px] h-[100px] lg:w-[200px] lg:h-[170px] shadow-xl">
-            <img
-              src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.companyImg}`}
-              alt="slider"
-              onClick={() => router.push(`/car-rental/uk/ferrari`)}
-              className="w-[60px] lg:w-[100px] object-cover"
-            />
-            <h2 className="font-semibold lg:text-xl">{item.companyName}</h2>
-          </div>
-        </div>
-      ))}
-    </Slider>
+    <div>
+      {arrayData.length > 0 && (
+        <Slider {...settings}>
+          {arrayData.map((item) => (
+            <div key={item._id} className="px-6 lg:px-12 py-6">
+              <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat w-[130px] h-[100px] lg:w-[200px] lg:h-[170px] shadow-xl">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.companyImg}`}
+                  alt="slider"
+                  onClick={() => router.push(`/car-rental/uk/ferrari`)}
+                  className="w-[60px] lg:w-[100px] object-cover"
+                />
+                <h2 className="font-semibold lg:text-xl">{item.companyName}</h2>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      )}
+    </div>
   );
 };
