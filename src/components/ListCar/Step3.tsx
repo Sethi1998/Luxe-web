@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -19,6 +19,7 @@ const EmailSchema = yup.object().shape({
     .required("Password is required"),
 });
 export const Step3 = ({ formStep, setFormStep }: StepProp) => {
+  const [insurance,setInsurance]=useState({name:''})
   const {
     register,
     handleSubmit,
@@ -58,7 +59,7 @@ export const Step3 = ({ formStep, setFormStep }: StepProp) => {
         error={errors.email?.message}
         register={register}
       />
-      <FileUpload label="Insurance & Protection" />
+      <FileUpload label="Insurance & Protection" handleChange={(e)=>setInsurance(e.target.files[0])} imgData={insurance.name}/>
       <SecondaryButton label="Next" />
     </form>
   );
