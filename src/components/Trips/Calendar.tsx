@@ -37,7 +37,7 @@ const Calendar = () => {
   ]
   return (
     <div className="py-8">
-      <div className="flex gap-6">
+      <div className="lg:flex gap-6 grid grid-cols-2">
         <SelectNew label="Sort" option={sort} defaultOption="Sort" />
         <SelectNew label="Sort" option={list} defaultOption="Listing Status" />
         <SelectNew label="Sort" option={vehicles} defaultOption="Vehicles" />
