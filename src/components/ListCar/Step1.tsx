@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import * as yup from "yup";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SecondaryInput } from "../common/SecondaryInput";
 import { RSelect } from "../common/RSelect";
 import { SecondaryButton } from "../common/Button/SecondaryButton";
-import { usePlacesWidget } from "react-google-autocomplete";
 import { apiHandler } from "@/services/api";
 import {
   getCompanies,
@@ -13,18 +11,14 @@ import {
   getVehicleTypes,
 } from "@/services/api/constants";
 import { VehicleCompany, VehicleModel, VehicleType, colors, years } from "./types";
+import { Step1Schema } from "./stepSchema";
 export interface StepProp {
   formStep: any;
   setFormStep: (value: any) => void;
   formData: any;
   setFormData: (value: any) => void;
 }
-const EmailSchema = yup.object().shape({
-  location: yup.string().required("Location is required"),
-  vehicleType: yup.string().required("Vehicle Type is required"),
-  make: yup.string().required("Make is required"),
-  vehicleYear: yup.number().required("Company is required"),
-});
+
 export const Step1 = ({
   formStep,
   setFormStep,
@@ -42,7 +36,7 @@ export const Step1 = ({
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm({ resolver: yupResolver(EmailSchema) });
+  } = useForm({ resolver: yupResolver(Step1Schema) });
   const vehcileCompanyWatch = watch("make");
   console.log(vehcileCompanyWatch, "companyWatch");
 
@@ -105,7 +99,7 @@ export const Step1 = ({
         label="Where is the car located"
         name="location"
         type="text"
-        error={errors.location?.message}
+        error={errors.address?.message}
         register={register}
         img="/locationblk.png"
       />
@@ -146,7 +140,7 @@ export const Step1 = ({
           label="Trim"
           name="trim"
           type="text"
-          error={errors.location?.message}
+          error={errors.trim?.message}
           register={register}
         />
         <RSelect

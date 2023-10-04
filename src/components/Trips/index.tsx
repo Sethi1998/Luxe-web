@@ -12,6 +12,10 @@ const list = [
     name: "History",
     link: "/trips/history",
   },
+  {
+    name: "Calendar",
+    link: "/trips/calendar",
+  },
 ];
 export const Trips = () => {
   const router = useRouter();

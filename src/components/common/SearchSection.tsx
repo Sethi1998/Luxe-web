@@ -141,8 +141,8 @@ export const SearchSection = () => {
           />
         </div>
       </div>
-      <div>
-        <PrimaryButton label="Search For Cars" />
+      <div className="w-full lg:w-auto">
+        <PrimaryButton label="Search" />
       </div>
     </div>
   );
