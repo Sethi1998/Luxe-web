@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SecondaryInput } from "../common/SecondaryInput";
@@ -6,12 +6,27 @@ import { RSelect } from "../common/RSelect";
 import { SecondaryButton } from "../common/Button/SecondaryButton";
 import { apiHandler } from "@/services/api";
 import {
+  addVehicle,
   getCompanies,
   getSubCategories,
-  getVehicleTypes,
+  getVehiclesType,
 } from "@/services/api/constants";
-import { VehicleCompany, VehicleModel, VehicleType, colors, years } from "./types";
+import {
+  VehicleCompany,
+  VehicleModel,
+  VehicleType,
+  colors,
+  years,
+} from "./types";
 import { Step1Schema } from "./stepSchema";
+import {
+  LoadScript,
+  Autocomplete,
+  useJsApiLoader,
+} from "@react-google-maps/api";
+import { LocationIcon } from "@/icons/LocationIcon";
+import toast from "react-hot-toast";
+import { CMSModal } from "@/context";
 export interface StepProp {
   formStep: any;
   setFormStep: (value: any) => void;
@@ -19,37 +34,81 @@ export interface StepProp {
   setFormData: (value: any) => void;
 }
 
+export interface STEP1 {
+  address: string;
+  year: string;
+  make: string;
+  category: string;
+  model: string;
+  color: string;
+  trim: string;
+  vinNumber: string;
+}
 export const Step1 = ({
   formStep,
   setFormStep,
   formData,
   setFormData,
 }: StepProp) => {
+  const { setLoading } = useContext(CMSModal);
   const [vehicleTypes, setVehicleTypes] = useState<VehicleType[]>([]);
   const [vehicleCompanies, setVehicleCompanies] = useState<VehicleCompany[]>(
     []
   );
   const [vehicleModel, setVehicleModel] = useState<VehicleModel[]>([]);
-
+  const [autocomplete, setAutocomplete] = useState<any>(null);
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     watch,
   } = useForm({ resolver: yupResolver(Step1Schema) });
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY as string,
+    libraries: ["places"],
+  });
   const vehcileCompanyWatch = watch("make");
-  console.log(vehcileCompanyWatch, "companyWatch");
-
   useEffect(() => {
     fetchVehicleTypes();
     fetchVehicleCategory();
   }, []);
+
   useEffect(() => {
-    fetchVehicleSubCategory(vehcileCompanyWatch);
+    vehcileCompanyWatch && fetchVehicleSubCategory(vehcileCompanyWatch);
   }, [vehcileCompanyWatch]);
 
+  const handlePlaceSelect = () => {
+    if (autocomplete) {
+      const place = autocomplete.getPlace();
+
+      if (place) {
+        // Access the postal code from the place object
+        const addressName = place.address_components.find((component: any) =>
+          component.types.includes("locality")
+        );
+        setValue("address", addressName?.long_name);
+        const cityName = place.address_components.find((component: any) =>
+          component.types.includes("administrative_area_level_3")
+        );
+        setValue("city", cityName?.long_name);
+
+        const state = place.address_components.find((component: any) =>
+          component.types.includes("administrative_area_level_1")
+        );
+        setValue("state", state?.long_name);
+
+        const postalCode = place.address_components.find((component: any) =>
+          component.types.includes("postal_code")
+        );
+        setValue("postalCode", postalCode?.long_name);
+      }
+    }
+  };
+
   const fetchVehicleTypes = async () => {
-    const res = await apiHandler(`${getVehicleTypes}`, "GET");
+    const res = await apiHandler(`${getVehiclesType}`, "GET");
     setVehicleTypes(res.data.data);
   };
   const fetchVehicleCategory = async () => {
@@ -79,43 +138,72 @@ export const Step1 = ({
     value: item,
     label: item,
   }));
-  const models =vehicleModel?.map((item) => ({
+  const models = vehicleModel?.map((item) => ({
     value: item._id,
     label: item.subCategoryName,
   }));
 
+  const submitHandler = async (data: STEP1) => {
+    setLoading(true);
+    const input = {
+      ...data,
+      step: "1",
+    };
+    const res = await apiHandler(`${addVehicle}`, "POST", input);
+    if (res.data.success) {
+      setLoading(false);
+      setFormData(res.data.data);
+      toast.success(res.data.message);
+      setFormStep({
+        ...formStep,
+        step1: false,
+        step2: true,
+      });
+    } else {
+      setLoading(false);
+      toast.error(res.data.message);
+    }
+  };
   return (
     <form
       className="flex flex-col gap-4"
-      onSubmit={() =>
-        setFormStep({
-          ...formStep,
-          step1: false,
-          step2: true,
-        })
-      }
+      onSubmit={handleSubmit((data) => submitHandler(data))}
     >
-      <SecondaryInput
-        label="Where is the car located"
-        name="location"
-        type="text"
-        error={errors.address?.message}
-        register={register}
-        img="/locationblk.png"
-      />
+      <div>
+        <label>Where is your car located?</label>
+
+        {isLoaded && (
+          <Autocomplete
+            onLoad={(autocomplete) => setAutocomplete(autocomplete)}
+            onPlaceChanged={handlePlaceSelect}
+          >
+            <div className="flex gap-4 bg-white p-2 rounded text-black items-center">
+              <input
+                placeholder="Where is your car located"
+                className="w-full outline-none"
+              />
+              <LocationIcon />
+            </div>
+          </Autocomplete>
+        )}
+
+        <p className="p-1 text-red-500 font-semibold">
+          {errors?.address?.message}
+        </p>
+      </div>
       <div className="lg:grid grid-cols-2 gap-4 w-full flex flex-col gap-4">
         <RSelect
-          name="vehicleType"
+          name="category"
           label="Select Vehicle Type?"
           register={register}
           option={vehicleTypeSelect}
-          defaultOption="Select Vehicle Type"
+          error={errors?.category?.message}
         />
         <RSelect
-          name="vehicleName"
+          name="year"
           label="Year of Vehicle?"
+          error={errors?.year?.message}
           register={register}
-          defaultOption="Select Year"
           option={vehicleYears}
         />
       </div>
@@ -125,14 +213,14 @@ export const Step1 = ({
           label="Make"
           register={register}
           option={vehicleCompany}
-          defaultOption="Select Make"
+          error={errors?.make?.message}
         />
         <RSelect
           name="model"
           label="Select Vehicle Model"
           register={register}
-          option={models||[]}
-          defaultOption="Select Vehicle Model"
+          option={models || []}
+          error={errors?.model?.message}
         />
       </div>
       <div className="lg:grid grid-cols-2 gap-6 w-full flex flex-col gap-4">
@@ -148,11 +236,17 @@ export const Step1 = ({
           label="Select Vehicle Color"
           register={register}
           option={vehicleColors}
-          defaultOption="Select Vehicle Color"
+          error={errors?.color?.message}
         />
       </div>
+      <SecondaryInput
+        label="VIN Number"
+        name="vinNumber"
+        type="text"
+        error={errors.vinNumber?.message}
+        register={register}
+      />
       <div className="flex gap-4">
-        <SecondaryButton label="Back" type="button" />
         <SecondaryButton label="Next" />
       </div>
     </form>

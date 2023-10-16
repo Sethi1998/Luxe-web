@@ -7,7 +7,6 @@ async function apiHandler(
   params = {},
   Headers?: string
 ) {
-  const token = getCookies("token");
   const headers = {
     Authorization: getCookies("token"),
     "content-type": Headers && "multipart/form-data",

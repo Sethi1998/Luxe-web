@@ -81,12 +81,12 @@ export const ReactSlider = ({ arrayData }: SliderProp) => {
       {arrayData.length > 0 && (
         <Slider {...settings}>
           {arrayData.map((item) => (
-            <div key={item._id} className="px-6 lg:px-12 py-6">
+            <div key={item._id} className="px-6 lg:px-12 py-6 cursor-pointer">
               <div className="flex flex-col items-center justify-center border rounded-xl bg-contain bg-no-repeat w-[130px] h-[100px] lg:w-[200px] lg:h-[170px] shadow-xl">
                 <img
                   src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.companyImg}`}
                   alt="slider"
-                  onClick={() => router.push(`/car-rental/uk/ferrari`)}
+                  onClick={() => router.push(`/car-rental/uk/${item.companyName}`)}
                   className="w-[60px] lg:w-[100px] object-cover"
                 />
                 <h2 className="font-semibold lg:text-xl">{item.companyName}</h2>

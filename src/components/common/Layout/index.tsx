@@ -8,11 +8,13 @@ import { CMSModal } from "@/context";
 import { deleteCookie } from "@/services/cookies";
 import { HostHeader } from "./HostHeader";
 import { getRequiredStatus } from "@/routes";
+import { Loader } from "../Loader";
+import { Toaster } from "react-hot-toast";
 interface LayoutProps {
   children: React.ReactNode;
 }
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { userInfo, setUserInfo } = useContext(CMSModal);
+  const { userInfo, setUserInfo, loading } = useContext(CMSModal);
   const router = useRouter();
   useEffect(() => {
     userInfoData();
@@ -30,6 +32,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header />
       <div className="mt-[92px]">{children}</div>
       <Footer />
+      {loading && <Loader />}
+      <Toaster />
     </div>
   );
 };

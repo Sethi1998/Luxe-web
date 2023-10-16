@@ -5,14 +5,12 @@ interface SelectProps {
   error?: string;
   register?: any;
   option: any;
-  defaultOption: string;
 }
 export const RSelect = ({
   label,
   name,
   error,
   register,
-  defaultOption,
   option,
 }: SelectProps) => {
   return (
@@ -25,11 +23,11 @@ export const RSelect = ({
           aria-invalid={error ? "true" : "false"}
           {...register(name)}
         >
-          <option defaultChecked>{defaultOption}</option>
-          {option.map((item:any) => (
-            <>
-              <option key={item.value} value={item.value}>{item.label}</option>
-            </>
+          <option  disabled selected>Select Your Option</option>
+          {option.map((item: any) => (
+            <option key={item.value} value={item.value}>
+              {item.label}
+            </option>
           ))}
         </select>
       </div>

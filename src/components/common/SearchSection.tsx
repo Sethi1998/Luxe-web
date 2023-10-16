@@ -27,7 +27,7 @@ export const SearchSection = () => {
   });
 
   const { ref }: any = usePlacesWidget({
-    apiKey: "AIzaSyDGjR7kqAFRiZ6hVluT9LhshR7_wvqOEug",
+    apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY,
     onPlaceSelected: (place) =>
       place &&
       setSearchField({
@@ -41,7 +41,6 @@ export const SearchSection = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(searchField, "seaaa");
 
   return (
     <div className="flex flex-col bg-white rounded-xl gap-4 lg:flex-row lg:h-[120px] lg:rounded-full py-5 lg:py-10 px-8 lg:px-10 text-xs lg:text-sm items-center">
