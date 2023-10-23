@@ -11,7 +11,11 @@ export const Step1Schema = yup.object().shape({
   model: yup.string().required("Vehicle Type is required"),
   trim: yup.string().required("Trim is required"),
   color: yup.string().required("Color is required"),
-  vinNumber: yup.string().required("VIN Number is required"),
+  vinNumber: yup
+    .string()
+    .required("VIN Number is required")
+    .matches(/^(|.{17,})$/, "Vin Number must be of 17 characters")
+    .max(17,"Vin Number must be of 17 characters"),
 });
 export const Step2Schema = yup.object().shape({
   plateNumber: yup.string().required("Plate Number is required"),

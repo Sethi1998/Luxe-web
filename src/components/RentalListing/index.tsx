@@ -64,7 +64,7 @@ export const CarRentalListing = () => {
           <h2 className="text-xl font-bold">{count} Cars availaible</h2>
           <div className="flex w-full gap-10 h-full">
             <div className="lg:flex lg:flex-[1.5] overflow-y-scroll flex flex-col gap-4">
-              {vehiclesData.map((item) => (
+              {vehiclesData?.map((item) => (
                 <CarListingCard key={item._id} item={item} fetch={fetchAllVehicles} />
               ))}
             </div>

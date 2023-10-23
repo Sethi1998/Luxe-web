@@ -42,6 +42,32 @@ export const colors = [
   "Ruby Red",
   "Forest Green",
 ];
+export const trim = [
+  {
+    label: "Base Trim",
+    value: "Base Trim",
+  },
+  {
+    label: "Hybrid",
+    value: "Hybrid",
+  },
+  {
+    label: "Off-Road",
+    value: "Hybrid",
+  },
+  {
+    label: "off-Road",
+    value: "Hybrid",
+  },
+  {
+    label: "SEL",
+    value: "SEL",
+  },
+  {
+    label: "Premium",
+    value: "Premium",
+  },
+];
 
 export const years = [
   "2015",

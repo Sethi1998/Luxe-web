@@ -5,12 +5,15 @@ interface SelectProps {
   error?: string;
   register?: any;
   option: any;
+  setValue: (data: any) => void;
+  setError: (data: any) => void;
 }
 export const RSelect = ({
   label,
   name,
   error,
-  register,
+  setValue,
+  setError,
   option,
 }: SelectProps) => {
   return (
@@ -21,9 +24,14 @@ export const RSelect = ({
           className="outline-none w-full border-none bg-transparent"
           name={name}
           aria-invalid={error ? "true" : "false"}
-          {...register(name)}
+          onChange={(e) => {
+            setValue(e.target.value);
+            setError("");
+          }}
         >
-          <option  disabled selected>Select Your Option</option>
+          <option disabled selected>
+            Select Your Option
+          </option>
           {option.map((item: any) => (
             <option key={item.value} value={item.value}>
               {item.label}

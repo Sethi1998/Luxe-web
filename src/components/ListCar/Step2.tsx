@@ -28,6 +28,8 @@ export const Step2 = ({ formStep, setFormStep, formData }: StepProp) => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    setError,
   } = useForm({ resolver: yupResolver(Step2Schema) });
 
   const submitHandler = async (data: STEP2) => {
@@ -67,7 +69,8 @@ export const Step2 = ({ formStep, setFormStep, formData }: StepProp) => {
         <RSelect
           name="door"
           label="Number of Doors"
-          register={register}
+          setValue={(data) => setValue("door", data)}
+          setError={(data) => setError("door", data)}
           option={doors}
           error={errors?.door?.message}
         />
@@ -76,14 +79,16 @@ export const Step2 = ({ formStep, setFormStep, formData }: StepProp) => {
         <RSelect
           name="seat"
           label="Number of Seats"
-          register={register}
+          setValue={(data) => setValue("seat", data)}
+          setError={(data) => setError("seat", data)}
           option={seats}
           error={errors?.seat?.message}
         />
         <RSelect
           name="fuelType"
           label="Fuel Type"
-          register={register}
+          setValue={(data) => setValue("fuelType", data)}
+          setError={(data) => setError("fuelType", data)}
           option={fuelType}
           error={errors?.fuelType?.message}
         />
@@ -92,15 +97,16 @@ export const Step2 = ({ formStep, setFormStep, formData }: StepProp) => {
         <RSelect
           name="transmission"
           label="Transmission"
-          register={register}
+          setValue={(data) => setValue('transmission', data)}
+          setError={(data) => setError("transmission", data)}
           option={transmission}
           error={errors?.transmission?.message}
         />
         <RSelect
           name="odometer"
           label="Odometer"
-          register={register}
-          option={odometer}
+          setValue={(data) => setValue("odometer", data)}
+          setError={(data) => setError('odometer',data)}          option={odometer}
           error={errors?.odometer?.message}
         />
       </div>

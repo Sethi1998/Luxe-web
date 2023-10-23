@@ -16,6 +16,7 @@ import {
   VehicleModel,
   VehicleType,
   colors,
+  trim,
   years,
 } from "./types";
 import { Step1Schema } from "./stepSchema";
@@ -62,6 +63,7 @@ export const Step1 = ({
     handleSubmit,
     setValue,
     formState: { errors },
+    setError,
     watch,
   } = useForm({ resolver: yupResolver(Step1Schema) });
   const { isLoaded } = useJsApiLoader({
@@ -89,6 +91,7 @@ export const Step1 = ({
           component.types.includes("locality")
         );
         setValue("address", addressName?.long_name);
+        setError('address',addressName)
         const cityName = place.address_components.find((component: any) =>
           component.types.includes("administrative_area_level_3")
         );
@@ -195,15 +198,17 @@ export const Step1 = ({
         <RSelect
           name="category"
           label="Select Vehicle Type?"
-          register={register}
           option={vehicleTypeSelect}
           error={errors?.category?.message}
+          setValue={(data) => setValue("category", data)}
+          setError={(data) => setError("category", data)}
         />
         <RSelect
           name="year"
           label="Year of Vehicle?"
           error={errors?.year?.message}
-          register={register}
+          setValue={(data) => setValue("year", data)}
+          setError={(data) => setError("year", data)}
           option={vehicleYears}
         />
       </div>
@@ -211,30 +216,34 @@ export const Step1 = ({
         <RSelect
           name="make"
           label="Make"
-          register={register}
+          setValue={(data) => setValue("make", data)}
+          setError={(data) => setError("make", data)}
           option={vehicleCompany}
           error={errors?.make?.message}
         />
         <RSelect
           name="model"
           label="Select Vehicle Model"
-          register={register}
+          setValue={(data) => setValue("model", data)}
+          setError={(data) => setError("model", data)}
           option={models || []}
           error={errors?.model?.message}
         />
       </div>
       <div className="lg:grid grid-cols-2 gap-6 w-full flex flex-col gap-4">
-        <SecondaryInput
-          label="Trim"
+        <RSelect
           name="trim"
-          type="text"
-          error={errors.trim?.message}
-          register={register}
+          label="Select Trim"
+          setValue={(data) => setValue("trim", data)}
+          setError={(data) => setError("trim", data)}
+          option={trim}
+          error={errors?.trim?.message}
         />
         <RSelect
           name="color"
           label="Select Vehicle Color"
-          register={register}
+          setValue={(data) => setValue("color", data)}
+          setError={(data) => setError("color", data)}
           option={vehicleColors}
           error={errors?.color?.message}
         />

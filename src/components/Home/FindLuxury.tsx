@@ -13,19 +13,19 @@ type VehicleType = {
 const array = [
   {
     name: "Luxury",
-    img: "/img/Luxury.png",
+    img: "/img/Luxury.jpeg",
   },
   {
     name: "Executive",
-    img: "/img/Executive.png",
+    img: "/img/Executive.jpeg",
   },
   {
     name: "Utility",
-    img: "/img/Utility.png",
+    img: "/img/Utility.jpeg",
   },
   {
-    name: "Boat",
-    img: "/img/Boat.png",
+    name: "Bizjet",
+    img: "/img/Bizjet.jpeg",
   },
 ];
 export const FindLuxury = () => {
@@ -37,30 +37,30 @@ export const FindLuxury = () => {
     const res = await apiHandler(`${getVehiclesType}`, "GET");
     setTypesData(res.data.data);
   };
-  console.log(typesData, "typessDataa");
 
   return (
     <Container>
       <div className="w-full">
         <h1 className="font-bold text-4xl text-center">Find Your Luxury Car</h1>
         <div className="grid grid-cols-2 gap-6 w-full lg:flex mt-6 justify-around">
-          {typesData.map((item) => (
+          {array.map((item) => (
             <div
               className="flex flex-col gap-2 text-center items-center"
-              key={item._id}
+              key={item.name}
             >
               <Link
-                href={`/car-rental/united/${item.vehicleTypeName}`}
+                href={`/car-rental/united/${item.name}`}
                 className="border-2 rounded-xl p-2 w-[150px] flex justify-center "
               >
-                <img
-                  src={`${process.env.NEXT_PUBLIC_API_IMG_URL}/${item.vehicleTypeImg}`}
+                <Image
+                  src={item.img}
                   width={100}
                   height={100}
                   alt="luxury"
+                  className="h-[80px]"
                 />
               </Link>
-              <h2 className="font-bold text-xl">{item.vehicleTypeName}</h2>
+              <h2 className="font-bold text-xl">{item.name}</h2>
             </div>
           ))}
         </div>
